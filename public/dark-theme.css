@@ -1,0 +1,75 @@
+body{
+    color: white;
+    background-color: #2a2a2a !important;
+}
+.card,.segment,.step{
+    background-color: #3d3d3d !important;
+}
+.description,.meta,.header,.icon{
+    color:white !important;
+}
+p,hr,h1,h3,label,a {
+    color: white !important;
+}
+.dark {
+    color: white !important;
+}
+.content{
+    color: white !important;
+}
+
+/* Dark Theme for PlasmaBank */
+h4,strong,.card-body,.close{
+    color: white !important;
+}
+a.btn.text-dark.shadow,#marqueecontainer,#vmarquee,.scroller{
+    color: white !important;
+    background-color: #3d3d3d !important;
+}
+.block,.title-bs{
+    background-color: #2a2a2a !important;
+}
+
+.btn.btn-outline-danger.delete-donor.btn-sm.mx-2,#nav-donor-tab.active,#nav-patient-tab.active,.jumbotron{
+    background-color: #3d3d3d!important;
+}
+.table.table-hover.border,.modal-header{
+    color: white !important;
+    background-color: #3d3d3d !important;
+}
+
+.card-header{
+    color:white!important;    
+}
+
+input,select{
+    color: white !important;
+    background-color: #404040 !important;
+}
+
+#active,#info,.card.bg-light.mb-3.border-dark,.blockquote-footer,a.nav-link.bg-light.text-success,a.nav-link.bg-light.text-primary,.modal-body,.modal-content{
+    background-color: #404040 !important;
+}
+
+.card-text{
+    color: white!important;
+}
+/* Dark Theme for plasma Bank ends */
+
+/* Dark Theme for Map */
+.ui.info.message,.ui.secondary.basic.button{
+    color:white!important;
+    background-color: #3d3d3d!important;
+}
+
+.ui.tiny.statistic.column > .value,.ui.tiny.statistic.column > .label{
+    color:white!important;
+}
+
+/* Dark Theme for Accordion */
+.ui.accordion > .title,.ui.accordion > .content{
+    background-color: #3d3d3d!important;
+    color:white!important;
+}
+
+/* Dark Theme for live track */

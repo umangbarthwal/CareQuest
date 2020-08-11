@@ -1,0 +1,422 @@
+<%- include("./partials/header") %>
+<div class="ui center aligned segment masthead"  id="cover">
+    <div class="ui center aligned text container">
+        <h1 class="ui header "><span style="color:#00a54c">Care</span> <span style="color:#00afef;">Quest</span>
+        </h1>
+        <p class="pretty">A Load Balancer for Medical Facilities</p>
+        <a href="/plasma_bank" class="ui massive basic inverted animated button" >
+            <div class="visible content">Dashboard</div>
+            <div class="hidden content">
+              <i class="right arrow icon" ></i>
+            </div>
+        </a>
+        <a href="#desc" class="ui massive basic inverted animated button">
+          <div class="visible content">Services</div>
+          <div class="hidden content">
+            <i class="down arrow icon"></i>
+          </div>
+        </a>
+        <a href="#Mission" class="ui massive basic inverted animated button">
+          <div class="visible content">Our Mission</div>
+          <div class="hidden content">
+            <i class="down arrow icon"></i>
+          </div>
+        </a>
+    </div>
+</div>
+<!-- Service Introduction -->
+<div id="desc" style="display: flex;justify-content: center;">
+  <div class="ui stackable grid" style="align-self:center;">
+    <div class="row">
+      <div class="center aligned column">
+        <div class="ui fluid segment">
+          <h1 class="ui header" style="font-size: 4.5em;">Services</h1>
+        </div>
+      </div>
+    </div>
+      <div class="row">
+        <div class="sixteen wide column">
+          <div class="ui centered stackable link cards" data-aos="zoom-in-up" data-aos-easing="ease-out-sine" >
+            <div class="ui link card" href="#PlasmaBankInfo">
+              <div class="image" >
+                <img src="blooddrop.png" style="height:30vh;width:auto;padding:10px;margin:auto;">
+              </div>
+              <div class="content">
+                <div class="header">Plasma Bank</div>
+                <div class="description">Find Donors Near You</div>
+              </div>
+              <div class="extra content">
+                <div class="right floated author">
+                  <a href="#PlasmaBankInfo">Know More</a>
+                </div>
+              </div>
+            </div>
+            <div class="ui link card" href="#CareNetInfo">
+              <div class="image">
+                <img src="https://pngimage.net/wp-content/uploads/2018/06/hopital-png-5.png" style="height:30vh;width:auto;padding:10px;margin:auto;">
+              </div>
+              <div class="content">
+                <div class="header">CareNet</div>
+                <div class="description">Community of Health Care Providers who care</div>
+              </div>
+              <div class="extra content">
+                <div class="right floated author">
+                  <a href="#CareNetInfo">Know More</a>
+                </div>
+              </div>
+            </div>
+            <div class="ui link card" href="#TrackABedInfo">
+              <div class="image" >
+                <img src="hospitalbed.png" style="height:30vh;width:auto;padding:10px;margin:auto;">
+              </div>
+              <div class="content">
+                <div class="header">Track A Bed</div>
+                <div class="description">Make an Informed decision while choosing hospitals</div>
+              </div>
+              <div class="extra content">
+                <div class="right floated author">
+                  <a href="#TrackABedInfo">Know More</a>
+                </div>
+              </div>
+            </div>
+            <div class="ui link card" href="#CareBotInfo">
+              <div class="image">
+                <img src="CareBotPNG.png" style="height:30vh;width:auto;padding:10px;margin:auto;">
+              </div>
+              <div class="content">
+                <div class="header">CareBot</div>
+                <div class="description">AI Powered Bot at your Service</div>
+              </div>
+              <div class="extra content">
+                <div class="right floated author">
+                  <a href="#CareBotInfo">Know More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+<!-- Plasma Bank Information -->
+<div class="ui middle container" id="PlasmaBankInfo" style="display:flex;align-items: center;">
+  <div class="ui stackable grid" >
+    <div class=row>
+      <div class="sixteen wide left aligned column">
+        <h1 class="ui header" style="font-size:4em;"><span style="color:#00a54c">Plasma</span> <span style="color:#00afef;">Bank</span></h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="ten wide column" data-aos="fade-right" data-aos-easing="ease-in-sine">
+        <p style="font-size: 20px;">The Plasma Bank is a small step towards solving the problem of finding eligible donors in
+          a situation where time is of great essence. We sincerely hope you or your loved ones never
+          have to go through this ordeal. But if you do, then we aspire to be able to help you by
+          connecting you with volunteer donors.</p>
+        <div class="ui large header">
+          <div class="content">
+            Plasma Donor Platform
+            <div class="sub header">
+              Donors can register with Plasma Bank allowing patients to contact them in need
+            </div>
+          </div>
+        </div>
+        <div class="ui large header">
+          <div class="content">
+            Patient Registeration
+            <div class="sub header">
+              Patients in need of plasma can register and get contacted with potential donors in their region
+            </div>
+          </div>
+        </div>
+        <br><br>
+        <div class="ui buttons">
+          <button class="ui link inverted button" ><a href="#desc">Other Services</a></button>
+          <button class="ui link inverted button" ><a href="/plasma_bank">Get Started</a></button>
+        </div>
+      </div>
+      <div class="six wide column">
+        <img class="ui image" data-aos="fade-up-right" data-aos-easing="ease-in-sine" src="BloodDonation.png">
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<!-- CareNet Information -->
+<div class="ui middle container" id="CareNetInfo" style="display:flex;align-items: center;">
+  <div class="ui stackable grid">
+    <div class="row">
+      <div class="sixteen wide left aligned column">
+        <h1 class="ui header" style="font-size:4em;"><span style="color:#00a54c">Care</span><span style="color:#00afef;">Net</span></h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="six wide column">
+        <img class="ui image" src="DoctorNurses.png">
+      </div>
+      <div class="ten wide column" data-aos="fade-up-left" data-aos-easing="ease-in-sine" >
+        <p style="font-size:20px;">With patient overcrowding, Hospitals need to collaborate and manage their resources well.
+           CareNet aims at providing a collaborative space to hospitals and get relevant information from hospital for load balancing.</p>
+        <div class="ui large header">
+          <div class="content">
+            Network of HealthCare Providers
+            <div class="sub header">
+              Hospitals can register, get verified and become part of our Network
+            </div>
+          </div>
+        </div>
+        <div class="ui tablet stackable fluid three steps" data-aos="fade-left" data-aos-duration="500">
+          <div class="step">
+            <i class="file icon"></i>
+            <div class="content">
+              <div class="title">Register</div>
+              <div class="description">Choose your shipping options</div>
+            </div>
+          </div>
+          <div class="step">
+            <i class="search icon"></i>
+            <div class="content">
+              <div class="title">Get Verified</div>
+              <div class="description">Get OCR verified</div>
+            </div>
+          </div>
+          <div class="step">
+            <i class="paper plane icon"></i>
+            <div class="content">
+              <div class="title">Start Sharing</div>
+              <div class="description">Collaborate and Share</div>
+            </div>
+          </div>
+        </div>
+        <div class="ui large header">
+          <div class="content">
+            Medical Collaboration to Get the Best
+            <div class="sub header">
+              Hospitals can collaborate by sharing information regarding resource availability and help in manuevering complicated cases
+            </div>
+          </div>
+        </div>
+        <div class="ui large header">
+          <div class="content">
+            Information Gathering
+            <div class="sub header">
+              Hospitals provide real time information allowing users to make informed decision while choosing a hospital
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+        <div class="ui right floated buttons">
+          <button class="ui inverted link button" ><a href="#desc">Other Services</a></button>
+          <button class="ui inverted link button" ><a href="/login">Get Started</a></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<!-- Track A Bed Information-->
+<div class="ui middle container" id="TrackABedInfo" style="display:flex;align-items: center;">
+  <div class="ui stackable grid" >
+    <div class="row">
+      <h1 class="ui header" style="font-size:4em;"><span style="color:#00a54c">Track A</span> <span style="color:#00afef;">Bed</span></h1>
+    </div>
+    <div class="row">
+      <div class="ten wide column" data-aos="fade-right" data-aos-easing="ease-in-sine" >
+        <p style="font-size:20px;">Make the right choice</p>
+        <h3 class="ui large header">
+          Information Provider
+          <div class="sub header">
+            Information collected through CareNet and Government Resources is shared with the user to make an informed decision while choosing a hospital
+          </div>
+        </h3>
+        <h3 class="ui large header">
+          Hospital Locator
+          <div class="sub header">
+            Track A Bed locates hospitals in your region and shares relevant information regarding them
+          </div>
+        </h3>
+      </div>
+      <div class="six wide column">
+        <img class="ui centered image" data-aos="fade-up-right" data-aos-easing="ease-in-sine" style="height: 35vh;width: auto;" src="HospitalBedPNG.png">
+      </div>
+    </div>
+    <div class="row" style="display:flex;align-items: center;">
+      <div class="six wide column">
+        <img class="ui centered circular image" data-aos="fade-up-left" data-aos-easing="ease-in-sine" style="height:35vh;width:auto" src="mapcapture.PNG">
+      </div>
+      <div class="ten wide column" data-aos="fade-left" data-aos-easing="ease-in-sine" >
+        <h3 class="ui large left aligned header">
+          Hospital Recommender
+          <div class="sub header">
+            Powered by <img class="ui mini spaced image" style="border-radius: 50%;" src="https://www.gisresources.com/wp-content/uploads/2018/01/here-maps-logo.png"> Here Maps API, Track A Bed locates Hospitals in your region
+            and recommends hospitals based on time, distance and utilization parameter, providing surety of bed availability
+          </div>
+        </h3>
+        <h3 class="ui large left aligned header" >
+          Dynamic Routing
+          <div class="sub header">
+          Track A Bed supports dynamic routing providing user with additional functionality to find arbitrary routes
+          </div>
+        </h3>
+        <br>
+        <div class="ui right floated buttons">
+          <button class="ui inverted link button"><a href="#desc">Other Services</a></button>
+          <button class="ui inverted link button"><a href="/map">Get Started</a></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<!-- CareBot Information -->
+<div class="ui middle container" id="CareBotInfo" style="display:flex;align-items: center;">
+  <div class="ui stackable grid">
+    <div class="row">
+      <h1 class="ui header" style="font-size:4em;"><span style="color:#00a54c">Care</span><span style="color:#00afef;">Bot</span></h1>
+    </div>
+    <div class="row">
+      <div class="six wide column">
+        <img class="ui centered image" data-aos="fade-up-left" data-aos-easing="ease-in-sine" style="height: 35vh;width: auto;" src="AIBot.png" >
+      </div>
+      <div class="ten wide column" data-aos="fade-left" data-aos-easing="ease-in-sine" >
+        <h3 class="ui large header">
+          AI Guide
+          <div class="sub header">
+            Our platform is equipped with an AI based chat Bot called CareBot<br> CareBot can guide user through the offered services
+            <br>
+            <br>
+            Click on <img class="ui mini spaced image" src="Careboticon.PNG"> icon on the right bottom of the screen to get started
+          </div>
+        </h3>
+        <button class="ui button inverted link floated"><a href="#">Other Services</a></button>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<!-- Mission Segment -->
+<div class="ui stackable grid" id="Mission" >
+  <div class="row">
+    <div class="column">
+      <div class="ui fluid center aligned segment">
+        <h1 class="ui header" style="font-size:4.5em;">Mission</h1>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="eleven wide center aligned column" data-aos="zoom-in" data-aos-easing="ease-in-sine" >
+      <p style="font-size: 20px;text-align: center;margin:2vh 10vw;">COVID-19 has been on a rampage all across the globe since
+        the past 5 months. From less than a million cases in February, and
+        currently having more than 10 million cases across the globe. This has caused widespread panic and disarray.
+      </p>
+
+      <p style="font-size: 20px;text-align: center;"><strong>Our Mission is to bring order to the chaos caused by COVID-19</strong><br><br></p>
+
+      <div class="ui stackable four equal width column grid">
+        <div class="column">
+          <h3 class="ui icon header">
+            <i class="chart bar icon"></i>
+            <div class="content">
+              Dashboard
+              <div class="sub header">Real Time Feed <br>on COVID-19</div>
+            </div>
+          </h3>
+        </div>
+        <div class="column">
+          <h3 class="ui icon header">
+            <i class="map marker alternate icon"></i>
+            <div class="content">
+              Track Amenities
+              <div class="sub header">Find facilities using Plasma Bank And Track A Bed</div>
+            </div>
+          </h3>
+        </div>
+        <div class="column">
+          <h3 class="ui icon header">
+            <i class="globe icon"></i>
+            <div class="content">
+              Collaborate
+              <div class="sub header">Join CareNet and collaborate</div>
+            </div>
+          </h3>
+        </div>
+        <div class="column">
+          <h3 class="ui icon header">
+            <i class="file icon"></i>
+            <div class="content">
+              Information Exchange
+              <div class="sub header">Make informed decisions</div>
+            </div>
+          </h3>
+        </div>
+      </div>
+
+      <p style="font-size: 20px;text-align: center;margin:2vh 10vw;"><span style="color:#00a54c">Care</span><span style="color:#00afef;">Quest</span>
+        Services extracts information from its custom network of registered hospitals and government sources which is used in resource allocation and service recommendation with the aim of load balancing.</p>
+    </div>
+    <div class="five wide centered column">
+      <img class="ui medium centered image" data-aos="zoom-in" data-aos-easing="ease-in-sine" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/SARS-CoV-2_without_background.png/895px-SARS-CoV-2_without_background.png">
+    </div>
+  </div>
+  <div class="row">
+    <div class="column">
+      <div class="ui fluid segment">
+        <h3 class="ui header" style="text-align:center;font-size:3vh; ">
+          <div class="content">"The secret of crisis management is not good vs. bad, it’s preventing the bad from getting worse."
+            <br>-Andy Gilman
+          </div>
+        </h3>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<!-- Footer Segment -->
+<div class="ui inverted vertical footer segment" data-aos="fade-up" data-aos-easing="ease-in-sine">
+  <div class="ui container">
+    <div class="ui stackable inverted divided equal height stackable grid">
+      <div class="eight wide centered column">
+        <img class="ui medium centered image" src="https://i.ibb.co/ZW161BF/output-onlinepngtools-1.png">
+      </div>
+      <div class="three wide column">
+        <h4 class="ui inverted header">About</h4>
+        <div class="ui inverted link list">
+          <a href="/" class="item">Home</a>
+          <a href="/index_plasma" class="item">Dashboard</a>
+          <a href="/AboutProject" class="item">Contact Us</a>
+          <a href="#Mission" class="item">Mission</a>
+        </div>
+      </div>
+      <div class="three wide column">
+        <h4 class="ui inverted header">Services</h5>
+        <div class="ui inverted link list">
+          <a href="/plasma_bank" class="item">Plasma Bank</a>
+          <a href="/map" class="item">Track A Bed</a>
+          <a href="/login" class="item">CareNet</a>
+        </div>
+        <br>
+        <br>
+        <div class="ui black inverted segment">
+          <div class="ui vertical inverted list">
+            <div class="centered item">
+              <div class="ui horizontal inverted link list">
+                <a href="https://github.com/#" class="item"><i class="github icon"></i></a>
+                <a href="#" class="item"><i class="envelope icon"></i></a>
+                <a href="#" class="item"><i class="youtube icon"></i></a>
+              </div>
+            </div>
+            <div class="item">
+              <h6 class="ui header">Copyright <i class="copyright icon"></i> Team BITSians 2020</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+document.getElementById("about").classList.add("active");
+</script>
+<%- include("./partials/footer") %>

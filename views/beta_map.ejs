@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map</title>
+    <meta name="viewport" content="initial-scale=1.0,width=device-width" />
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js" type="text/javascript"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha256-9mbkOfVho3ZPXfM7W8sV2SndrGDuh7wuyLjtsWeTI1Q=" crossorigin="anonymous" />
+      <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+    <!--++++++++++++++++++++checking points wrt user+++++++++++++++++++++++
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@5/turf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Turf.js/5.1.6/turf.js" integrity="sha512-frDfQT18xtqjId4TUIGINrdlmBUduxmHqMbIwQOHiupKEtgyH2Dl5MP3cAEWH+jPUGxOc7CEoCKjxe5RbDvi/w==" crossorigin="anonymous"></script>
+    -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Turf.js/5.1.6/turf.min.js" integrity="sha512-siRTCNQkkHmxAwPkDt8P/TUrtxSBTSxGyD2G+uliEjS7b5uLjAPgQxIwO6JWPaTQ8doAfBHcHPMut84oNdT/2g==" crossorigin="anonymous"></script>
+
+  </head>
+
+<body>
+  <div class="ui inverted pointing menu stackable">
+      <a id="about" href="/" class="item header">Home</a>
+      <a id="index_plasma" href="/index_plasma" class="item">Dashboard</a>
+      <a id="map" href="/map" class="item">Track A Bed</a>
+      <a id="plasma_bank" href="/plasma_bank" class="item">Plasma Bank</a>
+      <a id="log-in" href="/login" class="item">CareNet</a>
+      <a id="technology" href="/AboutProject" class="item">About</a>
+      <!-- <a id="test" href="/test" class="item">Test</a> -->
+
+
+
+
+      <div class="ui fluid inverted two column centered grid menu">
+          <span class="fluid item" id="status">CareQuest</span>
+      </div>
+      <a class="item" href="/beta_login" ><i class="map icon"></i></a>
+      <a class="item" href="/faq" ><i class="info icon"></i></a>
+      <a class="item" id="theme-toggle"><i class="moon icon"></i></a>
+      <div class="hamburger">
+          <span class="hamburger-bun"></span>
+          <span class="hamburger-patty"></span>
+          <span class="hamburger-bun"></span>
+      </div>
+  </div>
+
+
+  <div style="width: 1000px; height: 500px; margin: 1.5vh auto; margin-top: 0.5vh!important;" id="mapContainer"></div>
+
+
+  <div style="text-align-last: center;">
+    <h5><b>This is your Position Coordinates :</b></h5>
+    <img src="beta_icons/icons8-standing-man-48.png">
+    <p id="demo">Please wait ...</p>
+  </div>
+<!--+++++++++++++++++++++++++++++++++++++++++++-->
+
+
+
+
+
+<!--+++++++++++++++++++++++++++++++++++++++++++-->
+
+<script src="beta_map.js" type="text/javascript"></script>
+<script src="design.js"></script>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script src="beta_firebase.js"></script>
+
+<div class="wrapper" style="text-align: center;">
+  <div>
+    <label for="covidstatus">Covid-Status</label>
+    <select name="covidstatus" id="covidstatus" required>
+      <option value="green">Green</option>
+      <option value="yellow">Yellow</option>
+      <option value="red">Red</option>
+    </select>
+  </div>
+  <button style="position: relative;" onclick="add_location()">Update</button>
+</div>
+
+  </body>
+</html>

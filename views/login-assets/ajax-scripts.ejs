@@ -1,0 +1,58 @@
+<script>
+    //LOCATION GET
+
+
+    function fuzzynameGet() {
+        var search_query = {
+            HOSPITAL_NAME: $("#HOSPITAL_NAME").val(),
+            STATE_NAME: "",
+            COUNTY_NAME: "",
+            HQ_CITY: "",
+        }
+        $.ajax({
+            type: "GET",
+            contentType: "application/json",
+            url: "/api/fuzzy",
+            data: search_query,
+            dataType: "json",
+            success: function (result) {
+                $('#getResultDiv2 ul').empty();
+                $.each(result, function (i, hospital) {
+                    $('#getResultDiv2 .list-group').append("HOSPITAL NAME - " + hospital.HOSPITAL_NAME + " FID KEY- " + hospital.FID + "<br>")
+                });
+                console.log("Success: ", result);
+            },
+            error: function (e) {
+                $("#getResultDiv2").html("<strong>Error</strong>");
+                console.log("ERROR: ", e);
+            }
+        });
+    }
+
+    //FILTER MECHANISM
+    function fuzzyfilterGet() {
+        var search_query = {
+            HOSPITAL_NAME: $("#HOSPITAL_NAME").val(),
+            STATE_NAME: $("#STATE_NAME").val(),
+            COUNTY_NAME: $("#COUNTY_NAME").val(),
+            HQ_CITY: "",
+        }
+        $.ajax({
+            type: "GET",
+            contentType: "application/json",
+            url: "/api/fuzzy",
+            data: search_query,
+            dataType: "json",
+            success: function (result) {
+                $('#getResultDiv2 ul').empty();
+                $.each(result, function (i, hospital) {
+                    $('#getResultDiv2 .list-group').append("HOSPITAL NAME - " + hospital.HOSPITAL_NAME + " FID KEY- " + hospital.FID + "<br>")
+                });
+                console.log("Success: ", result);
+            },
+            error: function (e) {
+                $("#getResultDiv2").html("<strong>Error</strong>");
+                console.log("ERROR: ", e);
+            }
+        });
+    }

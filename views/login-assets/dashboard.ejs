@@ -1,0 +1,110 @@
+iv class="main-item" id="dashboard-page" >
+<div class="ui segment">
+    <h2 class="ui header">
+        <i class="blue colored desktop icon"></i>
+        <div class="content">
+            DASHBOARD
+            <div class="sub header">Analysis</div>
+        </div>
+    </h2>
+    <hr>
+</div>
+<hr>
+<!--Starting Firebase Cloud Storage-->
+<div class="ui segment">
+    <h3>Upload Progress : </h3><progress value="0" max="100" id="uploader" style="display: none">0%</progress>
+    <p id="chs"> Choose your file [must be in bmp, jpg, png, or pbm] </p>&ensp;<input type="file" value="upload"
+        id="fileBtn">
+
+    <h3>Analysis : </h3>
+    <div id="percentage" style="
+    display: inline;
+"></div>
+    <div id="analysis" style="
+    display: inline;
+"></div>
+    <br>
+    <h3>Result : </h3>
+    <div id="res" style="display: inline; color: orchid;">Pending</div>
+</div>
+<div class="ui segment">
+    <div class="ui ordered steps tablet stackable">
+        <div id="dash-email" class="step">
+            <div class="content">
+                <div class="title">Email</div>
+                <div class="description">Verify your Email account</div>
+            </div>
+        </div>
+        <div id="dash-id" class="step">
+            <div class="content">
+                <div class="title">ID</div>
+                <div class="description">Verify Medical Personal</div>
+            </div>
+        </div>
+        <div id="dash-handle" class="step" data-content="Email and ID must be verified before using this link!">
+            <div class="content">
+                <div class="title"><span id="add-hospital" onclick="testRedirect();">Hospital Handle <i
+                            class="add icon"></i></span></div>
+                <div class="description">Add a New Hospital<br>Select from Database</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="danger-message" style="display: none;">
+    <div class="ui negative message">
+        <i id="close-creation" class="close icon"></i>
+        <div class="header">
+            Warning You already have a Hospital Linked!
+        </div>
+        <p>Kindly Edit existing otherwise adding new hospital will remove the old one!
+        </p>
+    </div>
+</div>
+<div class="ui container" id="test-page" style="display: none;">
+    <br>
+    <div class="ui placeholder segment">
+        <div class="ui two column stackable center aligned grid">
+            <div class="ui vertical divider">Or</div>
+            <div class="middle aligned row">
+                <div class="column">
+                    <div class="ui icon header">
+                        <i class="search icon"></i>
+                        Find Hospital
+                    </div>
+                    <div class="ui primary button" style="margin: 0 auto 0 auto !important;" onclick="searchDisplay()">
+                        Search
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui icon header">
+                        <i class="medkit icon"></i>
+                        Add New Hospital
+                    </div>
+                    <div class="ui primary button" style="margin: 0 auto 0 auto !important;" onclick="addDisplay()">
+                        Create
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui segment" id="choice-segment-1" style="display: none;">
+        <div id="fuzzy-name">
+            <div class="ui dividing blue header">Enter Hospital Name</div>
+            <div class="ui fluid icon input">
+                <input id="HOSPITAL_NAME" type="text" placeholder="Search...">
+                <div class="ui large blue animated button" tabindex="0" onclick="fuzzynameGet()">
+                    <div class="visible content"><i class="search icon"></i></div>
+                    <div class="hidden content"><i class="right arrow icon"></i></div>
+                </div>
+            </div>
+            <div class="ui icon input">
+                <input id="STATE_NAME" type="text" placeholder="State Name...">
+                <i class="filter icon"></i>
+            </div>
+            <div class="ui icon input">
+                <input id="COUNTY_NAME" type="text" placeholder="County/City Name...">
+                <i class="filter icon"></i>
+            </div>
+            <button class="ui teal button" type="button" onclick="fuzzyfilterGet()">Filter</button>
+        </div>
+    </div>

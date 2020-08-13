@@ -1,0 +1,93 @@
+<div class="main-item" id="profile-page" style="display:none;">
+    <div class="ui segment">
+        <h2 class="ui header"><button id="EditProfilePageBtn"
+                class="ui mini positive right floated button">EDIT</button>
+            <i class="blue colored user icon"></i>
+            <div class="content">
+                PROFILE
+                <div class="sub header"></div>
+            </div>
+        </h2>
+        <hr>
+    </div>
+    <form>
+        <div class="ui form" id="new-form">
+            <div class="ui dividing green header">
+                Hospital
+            </div>
+            <div class="fields">
+                <div class="eleven wide field">
+                    <label>Hospital Name</label>
+                    <input type="text" id="mh-hname" readonly>
+                </div>
+                <div class="five wide field">
+                    <label>Hospital Type</label>
+                    <input type="text" id="mh-htype" readonly>
+                </div>
+            </div>
+            <div class="ui dividing green header">Location</div>
+            <h4 class="ui header">Location Geographical Coordinates<a target="_blank" href="https://www.latlong.net/"><i
+                        class="question circle black icon"
+                        data-content="Click here to get Coordinates of the hospital"></i></a></h4>
+            <div class="two fields">
+                <div class="field">
+                    <label>Latitude</label>
+                    <input type="text" id="mh-x" readonly>
+                </div>
+                <div class="field">
+                    <label>Longitude</label>
+                    <input type="text" id="mh-y" readonly>
+                </div>
+            </div>
+            <h4 class="ui green header">Headquarters Address</h4>
+            <div class="field">
+                <label>Address</label>
+                <input type="text" id="mh-hq-add" readonly>
+            </div>
+            <div class="three fields">
+                <div class="field">
+                    <label>City</label>
+                    <input type="text" id="mh-hq-city" readonly>
+                </div>
+                <div class="field">
+                    <label>State</label>
+                    <input type="text" id="mh-hq-state" readonly>
+                </div>
+                <div class="field">
+                    <label>Zip Code</label>
+                    <input type="text" id="mh-hq-zip" readonly>
+                </div>
+            </div>
+            <h4 class="ui green header">Hospital Address</h4>
+            <div class="three fields">
+                <div class="field">
+                    <label>County/City </label>
+                    <input type="text" id="mh-county" readonly>
+                </div>
+                <div class="field">
+                    <label>State</label>
+                    <input type="text" id="mh-state" readonly>
+                </div>
+                <div class="field" style="display:none">
+                    <label>FID</label>
+                    <input type="text" id="mh-fid" readonly>
+                </div>
+                <div class="field">
+                    <label>FIPS</label>
+                    <input type="text" id="mh-fips" readonly>
+                </div>
+            </div>
+            <div class="ui buttons" id="ProfileSubmitBtnGrp">
+                <div class="ui animated blue button" type="submit" id="submitprofilebtn">
+                    <div class="visible content">Save Changes</div>
+                    <div class="hidden content"><i class="paper plane icon"></i></div>
+                </div>
+                <div class="ui animated red button" type="submit" id="cancelprofilebtn">
+                    <div class="visible content">Cancel</div>
+                    <div class="hidden content"><i class="trash icon"></i></div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>

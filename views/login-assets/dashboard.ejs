@@ -1,110 +1,259 @@
-iv class="main-item" id="dashboard-page" >
-<div class="ui segment">
-    <h2 class="ui header">
-        <i class="blue colored desktop icon"></i>
-        <div class="content">
-            DASHBOARD
-            <div class="sub header">Analysis</div>
-        </div>
-    </h2>
+<div class="main-item" id="dashboard-page">
+    <div class="ui segment">
+        <h2 class="ui header">
+            <i class="blue colored desktop icon"></i>
+            <div class="content">
+                DASHBOARD
+                <div class="sub header">Analysis</div>
+            </div>
+        </h2>
+        <hr>
+    </div>
     <hr>
-</div>
-<hr>
-<!--Starting Firebase Cloud Storage-->
-<div class="ui segment">
-    <h3>Upload Progress : </h3><progress value="0" max="100" id="uploader" style="display: none">0%</progress>
-    <p id="chs"> Choose your file [must be in bmp, jpg, png, or pbm] </p>&ensp;<input type="file" value="upload"
-        id="fileBtn">
+    <!--Starting Firebase Cloud Storage-->
+    <div class="ui segment">
+        <h3>Upload Progress : </h3><progress value="0" max="100" id="uploader" style="display: none">0%</progress>
+        <p id="chs"> Choose your file [must be in bmp, jpg, png, or pbm] </p>&ensp;<input type="file" value="upload"
+            id="fileBtn">
 
-    <h3>Analysis : </h3>
-    <div id="percentage" style="
+        <h3>Analysis : </h3>
+        <div id="percentage" style="
     display: inline;
 "></div>
-    <div id="analysis" style="
+        <div id="analysis" style="
     display: inline;
 "></div>
-    <br>
-    <h3>Result : </h3>
-    <div id="res" style="display: inline; color: orchid;">Pending</div>
-</div>
-<div class="ui segment">
-    <div class="ui ordered steps tablet stackable">
-        <div id="dash-email" class="step">
-            <div class="content">
-                <div class="title">Email</div>
-                <div class="description">Verify your Email account</div>
-            </div>
-        </div>
-        <div id="dash-id" class="step">
-            <div class="content">
-                <div class="title">ID</div>
-                <div class="description">Verify Medical Personal</div>
-            </div>
-        </div>
-        <div id="dash-handle" class="step" data-content="Email and ID must be verified before using this link!">
-            <div class="content">
-                <div class="title"><span id="add-hospital" onclick="testRedirect();">Hospital Handle <i
-                            class="add icon"></i></span></div>
-                <div class="description">Add a New Hospital<br>Select from Database</div>
-            </div>
-        </div>
+        <br>
+        <h3>Result : </h3>
+        <div id="res" style="display: inline; color: orchid;">Pending</div>
     </div>
-</div>
-<div id="danger-message" style="display: none;">
-    <div class="ui negative message">
-        <i id="close-creation" class="close icon"></i>
-        <div class="header">
-            Warning You already have a Hospital Linked!
-        </div>
-        <p>Kindly Edit existing otherwise adding new hospital will remove the old one!
-        </p>
-    </div>
-</div>
-<div class="ui container" id="test-page" style="display: none;">
-    <br>
-    <div class="ui placeholder segment">
-        <div class="ui two column stackable center aligned grid">
-            <div class="ui vertical divider">Or</div>
-            <div class="middle aligned row">
-                <div class="column">
-                    <div class="ui icon header">
-                        <i class="search icon"></i>
-                        Find Hospital
-                    </div>
-                    <div class="ui primary button" style="margin: 0 auto 0 auto !important;" onclick="searchDisplay()">
-                        Search
-                    </div>
+    <div class="ui segment">
+        <div class="ui ordered steps tablet stackable">
+            <div id="dash-email" class="step">
+                <div class="content">
+                    <div class="title">Email</div>
+                    <div class="description">Verify your Email account</div>
                 </div>
-                <div class="column">
-                    <div class="ui icon header">
-                        <i class="medkit icon"></i>
-                        Add New Hospital
-                    </div>
-                    <div class="ui primary button" style="margin: 0 auto 0 auto !important;" onclick="addDisplay()">
-                        Create
-                    </div>
+            </div>
+            <div id="dash-id" class="step">
+                <div class="content">
+                    <div class="title">ID</div>
+                    <div class="description">Verify Medical Personal</div>
+                </div>
+            </div>
+            <div id="dash-handle" class="step" data-content="Email and ID must be verified before using this link!">
+                <div class="content">
+                    <div class="title"><span id="add-hospital" onclick="testRedirect();">Hospital Handle <i
+                                class="add icon"></i></span></div>
+                    <div class="description">Add a New Hospital<br>Select from Database</div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="ui segment" id="choice-segment-1" style="display: none;">
-        <div id="fuzzy-name">
-            <div class="ui dividing blue header">Enter Hospital Name</div>
-            <div class="ui fluid icon input">
-                <input id="HOSPITAL_NAME" type="text" placeholder="Search...">
-                <div class="ui large blue animated button" tabindex="0" onclick="fuzzynameGet()">
-                    <div class="visible content"><i class="search icon"></i></div>
-                    <div class="hidden content"><i class="right arrow icon"></i></div>
-                </div>
+    <div id="danger-message" style="display: none;">
+        <div class="ui negative message">
+            <i id="close-creation" class="close icon"></i>
+            <div class="header">
+                Warning You already have a Hospital Linked!
             </div>
-            <div class="ui icon input">
-                <input id="STATE_NAME" type="text" placeholder="State Name...">
-                <i class="filter icon"></i>
-            </div>
-            <div class="ui icon input">
-                <input id="COUNTY_NAME" type="text" placeholder="County/City Name...">
-                <i class="filter icon"></i>
-            </div>
-            <button class="ui teal button" type="button" onclick="fuzzyfilterGet()">Filter</button>
+            <p>Kindly Edit existing otherwise adding new hospital will remove the old one!
+            </p>
         </div>
     </div>
+    <div class="ui container" id="test-page" style="display: none;">
+        <br>
+        <div class="ui placeholder segment">
+            <div class="ui two column stackable center aligned grid">
+                <div class="ui vertical divider">Or</div>
+                <div class="middle aligned row">
+                    <div class="column">
+                        <div class="ui icon header">
+                            <i class="search icon"></i>
+                            Find Hospital
+                        </div>
+                        <div class="ui primary button" style="margin: 0 auto 0 auto !important;"
+                            onclick="searchDisplay()">
+                            Search
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="ui icon header">
+                            <i class="medkit icon"></i>
+                            Add New Hospital
+                        </div>
+                        <div class="ui primary button" style="margin: 0 auto 0 auto !important;" onclick="addDisplay()">
+                            Create
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui segment" id="choice-segment-1" style="display: none;">
+            <div id="fuzzy-name">
+                <div class="ui dividing blue header">Enter Hospital Name</div>
+                <div class="ui fluid icon input">
+                    <input id="HOSPITAL_NAME" type="text" placeholder="Search...">
+                    <div class="ui large blue animated button" tabindex="0" onclick="fuzzynameGet()">
+                        <div class="visible content"><i class="search icon"></i></div>
+                        <div class="hidden content"><i class="right arrow icon"></i></div>
+                    </div>
+                </div>
+                <div class="ui icon input">
+                    <input id="STATE_NAME" type="text" placeholder="State Name...">
+                    <i class="filter icon"></i>
+                </div>
+                <div class="ui icon input">
+                    <input id="COUNTY_NAME" type="text" placeholder="County/City Name...">
+                    <i class="filter icon"></i>
+                </div>
+                <button class="ui teal button" type="button" onclick="fuzzyfilterGet()">Filter</button>
+            </div>
+        </div>
+        <div class="ui segment" id="choice-segment-2" style="display: none;">
+            <!--Form for new Hospitals-->
+            <form>
+                <div class="ui large form" id="new-form">
+                    <div class="ui dividing blue header">
+                        Hospital
+                        <div class="sub header">
+                            Please provide information to start registeration process
+                        </div>
+                    </div>
+                    <div class="fields">
+                        <div class="eleven wide field">
+                            <label>Hospital Name</label>
+                            <input type="text" id="cr-hname" placeholder="Name">
+                        </div>
+                        <div class="five wide field">
+                            <label>Hospital Type</label>
+                            <input type="text" id="cr-htype" placeholder="Type">
+                        </div>
+                    </div>
+                    <div class="ui dividing blue header">Location</div>
+                    <h4 class="ui header">Location Geographical Coordinates<a target="_blank"
+                            href="https://www.latlong.net/"><i class="question circle black icon"
+                                data-content="Click here to get Coordinates of the hospital"></i></a></h4>
+                    <div class="two fields">
+                        <div class="field">
+                            <label>Lattitude</label>
+                            <input type="text" id="cr-x" placeholder="X">
+                        </div>
+                        <div class="field">
+                            <label>Longitude</label>
+                            <input type="text" id="cr-y" placeholder="Y">
+                        </div>
+                    </div>
+                    <h4 class="ui header">Headquarters Address</h4>
+                    <div class="ui small info message">
+                        <p>Provide hospital address in absence of headquarters</p>
+                    </div>
+                    <div class="field">
+                        <label>Address</label>
+                        <input type="text" id="cr-hq-add" placeholder="Address">
+                    </div>
+                    <div class="three fields">
+                        <div class="field">
+                            <label>City</label>
+                            <input type="text" id="cr-hq-city" placeholder="City">
+                        </div>
+                        <div class="field">
+                            <label>State</label>
+                            <input type="text" id="cr-hq-state" placeholder="State">
+                        </div>
+                        <div class="field">
+                            <label>Zip Code</label>
+                            <input type="text" id="cr-hq-zip" placeholder="Zip">
+                        </div>
+                    </div>
+                    <h4 class="ui header">Hospital Address</h4>
+                    <div class="three fields">
+                        <div class="field">
+                            <label>County</label>
+                            <input type="text" id="cr-county" placeholder="Country">
+                        </div>
+                        <div class="field">
+                            <label>State</label>
+                            <input type="text" id="cr-state" placeholder="State">
+                        </div>
+                        <div class="field">
+                            <label>FIPS</label>
+                            <input type="text" id="cr-fips" placeholder="FIPS">
+                        </div>
+                    </div>
+                    <div class="ui dividing blue header">
+                        Additional Information
+                        <div class="sub header">
+                            This information will help us in resource allocation
+                        </div>
+                    </div>
+                    <div class="two fields">
+                        <div class="field">
+                            <label>Licensed Beds</label>
+                            <input type="number" id="cr-beds" placeholder="Licensed Beds">
+                        </div>
+                        <div class="field">
+                            <label>Staffed Beds</label>
+                            <input type="number" id="cr-st-beds" placeholder="Staffed Beds">
+                        </div>
+                    </div>
+                    <div class="three fields">
+                        <div class="field">
+                            <label>ICU Beds</label>
+                            <input type="number" id="cr-icu-beds" placeholder="ICU beds">
+                        </div>
+                        <div class="field">
+                            <label>Adult ICU Beds</label>
+                            <input type="number" id="cr-aicu-beds" placeholder="Adult ICU beds">
+                        </div>
+                        <div class="field">
+                            <label>Pediatric ICU Beds</label>
+                            <input id="cr-picu-beds" placeholder="Pediatric ICU beds">
+                        </div>
+                    </div>
+                    <div class="two fields">
+                        <div class="field">
+                            <label>Bed Utilization</label>
+                            <input type="number" id="cr-util" placeholder="Avg Bed Utilization">
+                        </div>
+                        <div class="field">
+                            <label>Expected Bed Capacity Increase</label>
+                            <input type="number" id="cr-inc" placeholder="Increase in Bed Capacity">
+                        </div>
+                    </div>
+                    <div class="inline fields">
+                        <label>Average Ventilator utilization</label>
+                        <div class="fourteen wide field">
+                            <input type="number" id="cr-avg-vent" placeholder="Number of Patients per Ventilator">
+                        </div>
+                    </div>
+
+                </div>
+                <br>
+                <div class="ui four column centered stackable grid">
+                    <div class="left floated eleven wide column">
+                        <div class="sub header">
+                            <br>
+                            By clicking submit you agree to have carefully gone through and agreeing with our Terms,
+                            Data Policy and Cookie Policy
+                        </div>
+                    </div>
+                    <div class="right floated right aligned column">
+                        <div class="ui animated blue huge button" tabindex="0" id="create-hosp"
+                            onclick="createHospital()">
+                            <div class="visible content">Submit</div>
+                            <div class="hidden content">
+                                <i class="right arrow icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!--Form for new Hospitals end-->
+        </div>
+
+        <div id="getResultDiv2">
+            <ul class="list-group">
+            </ul>
+        </div>
+    </div>
+</div>

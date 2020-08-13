@@ -1,0 +1,169 @@
+<%- include("./partials/header") %>
+<html>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js" integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg==" crossorigin="anonymous"></script>
+</head>
+
+<body> 
+
+<div class="container pt-3">
+
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link active" id="nav-donor-tab" data-toggle="tab" href="#nav-donor" role="tab" aria-controls="nav-donor" aria-selected="true"><strong>Plasma Donors</strong></a>
+      <a class="nav-item nav-link" id="nav-patient-tab" data-toggle="tab" href="#nav-patient" role="tab" aria-controls="nav-patient" aria-selected="false"><strong>Plasma Patients</strong></a>
+      <a class="nav-item nav-link ml-auto" id="nav-patient-tab" data-toggle="tab" href="#nav-filter" role="tab" aria-controls="nav-filter" aria-selected="false"><strong><i class="filter icon"></i>Filter</strong></a>
+
+      <!--filters-->
+
+
+
+      <!---->
+
+      <a class="nav-item nav-link p-2" id="register" data-toggle="modal" data-target="#registerpopup"><i class="large user plus icon" style="color:#3366BB;transition:2s;"></i></a>
+    </div>
+  </nav>
+
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-donor" role="tabpanel" aria-labelledby="nav-donor-tab"><span id="show-donor"></span></div>
+    <div class="tab-pane fade" id="nav-patient" role="tabpanel" aria-labelledby="nav-pateint-tab"><span id="show-patient"></span></div>
+    <div class="tab-pane fade" id="nav-filter" role="tabpanel" aria-labelledby="nav-filter-tab">
+      <div class="jumbotron">
+        <h1 class="display-4">Filter</h1>
+        <p class="lead">Based on fuzzy logic to search the database</p>
+        <hr class="my-4">
+        <p>
+          <form>
+            <div class="form-row">
+              <div class="col-md-2 form-group">
+                <label for="age">Age</label>
+                <input type="text" class="form-control" id="age" placeholder="Age">
+              </div>
+            <div class="col-md-2 form-group">
+              <label for="bloodGroup">Blood Group</label>
+              <select class="form-control" id="bloodGroup" placeholder="Select Blood Group">
+                <option>A+</option>
+                <option>A-</option>
+                <option>B+</option>
+                <option>B-</option>
+                <option>O+</option>
+                <option>O-</option>
+                <option>AB+</option>
+                <option>AB-</option>
+              </select>
+            </div>
+          </div>
+            <div class="form-row">
+              <div class="col-4">
+                <label for="city">City</label>
+                <input type="text" class="form-control" placeholder="City" id="city">
+              </div>
+              <div class="col-4">
+                <label for="state">State</label>
+                <input type="text" class="form-control" placeholder="State" id="state">
+              </div>
+              <div class="col-4">
+                <label for="country">Country</label>
+                <input type="text" class="form-control" placeholder="Country" id="country">
+              </div>
+            </div>
+          </form>
+        </p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="#" role="button" onclick="donorFuzzy()">Donors</a>
+          <a class="btn btn-primary btn-lg" href="#" role="button" onclick="patientFuzzy()">Patients</a>
+        </p>
+      </div>
+      <span id="show-filter"></span>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!--<script>
+document.getElementById("register").addEventListener("click", function() {
+  alert("under development");
+  });
+</script>-->
+
+<!-- Register Modal -->
+<div class="modal fade" id="registerpopup" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel">Register</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center pt-5" style="min-height: 10rem;">
+        <a class="btn btn-outline-success" href="form_donor">I am a Donor</a>
+        <a class="btn btn-outline-danger" href="form_patient">I am a Patient</a>
+      </div>
+      <!--<div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>-->
+    </div>
+  </div>
+</div>
+
+
+
+         <!--firebase-->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+    apiKey: "AIzaSyChax-RIyl8an4nKJA0XLdIc8CyU3jeGgY",
+    authDomain: "here-maps-bitsians.firebaseapp.com",
+    databaseURL: "https://here-maps-bitsians.firebaseio.com",
+    projectId: "here-maps-bitsians",
+    storageBucket: "here-maps-bitsians.appspot.com",
+    messagingSenderId: "517005193635",
+    appId: "1:517005193635:web:846d53aebc789427b0ea16"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+    </script>
+
+     <!--js file-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js" integrity="sha256-t8GepnyPmw9t+foMh3mKNvcorqNHamSKtKRxxpUEgFI=" crossorigin="anonymous"></script>
+  <script src="design.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="common_pool.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="form_donor.js"></script>
+  <script src="form_patient.js"></script>
+  <script>
+    window.watsonAssistantChatOptions = {
+        integrationID: "86b7430c-f46d-4942-b71f-fef10f18944a", // The ID of this integration.
+        region: "eu-gb", // The region your integration is hosted in.
+        serviceInstanceID: "c2b6fe2e-63b0-4202-9599-00826507a317", // The ID of your service instance.
+        onLoad: function(instance) { instance.render(); }
+      };
+    setTimeout(function(){
+      const t=document.createElement('script');
+      t.src="https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
+      document.head.appendChild(t);
+    });
+  </script>
+
+  <script> document.getElementById("common_pool").classList.add("active"); </script>
+</body>
+</html>

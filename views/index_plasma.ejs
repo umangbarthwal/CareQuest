@@ -1,0 +1,364 @@
+<%- include("./partials/header") %>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>
+        Home
+    </title>
+
+          <!-- Custom fonts for this template-->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <!-- Bootstrap CSS only -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+</head>
+
+<body>
+<div class="home-bg">
+
+    <!--stats-->
+    <div class="container text-center p-3" style="min-height: 10rem;">
+        <div class="row">
+            <div class="col-12 col-sm-12">
+                          <!-- Content Row -->
+          <div class="row">
+
+            <!-- Location -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><i class="large location arrow icon"></i>Location</div>
+                      <div class="h6 mb-0 font-weight-bold text-gray-800 ml-1" style="display : inline;"><span id="country"></span></div>
+                      <div id="flag" style="display : inline;"></div>
+                    </div>
+                    <div class="col-auto">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Total Cases -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Total Cases</div>
+                      <div class="h6 mb-0 font-weight-bold text-gray-800"><span id="totalCases"></span></div>
+                    </div>
+                    <div class="col-auto">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Total Recovered -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Recovered</div>
+                      <div class="h6 mb-0 font-weight-bold text-gray-800"><span id="totalRecoveredCases"></span></div>
+                    </div>
+                    <div class="col-auto">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- New Cases -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">New Cases</div>
+                      <div class="h6 mb-0 font-weight-bold text-gray-800"><span id="totalNewCases"></span></div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            </div>
+        </div>
+    </div>
+
+    <!--news-->
+    <div class="container my-3 p-3" style="min-height: 20rem;">
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                      <h6 class="m-0 font-weight-bold  text-center"><i class="large globe icon"></i>Global Updates</h6>
+                    </div>
+                    <div class="card-body pr-4">
+                      <div class="scroller">
+                        <span id="globalnews"></span>
+                      </div>
+                    </div>
+                </div>
+            </div>
+  <div class="col-12 col-sm-6">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold  text-center"><i class="large newspaper outline icon"></i>Local Updates</h6>
+        </div>
+        <div class="card-body">
+
+    <!--news scroller-->
+    <div id="marqueecontainer" onMouseover="copyspeed=pausespeed"  onMouseout="copyspeed=marqueespeed">
+      <div id="vmarquee" style="position: absolute; width: 98%;">
+
+          <!--YOUR SCROLL CONTENT HERE-->
+          <span id="news1"></span>
+           <!--YOUR SCROLL CONTENT HERE-->
+
+       </div>
+    </div>
+
+
+     <!--<style type="text/css">
+      #marqueecontainer{
+      position: relative;
+       width: 500px auto; /*marquee width */
+      height: 280px; /*marquee height */
+       background-color: white;
+      overflow: hidden;
+      /*border: 3px solid orange;*/
+      /*padding: 2px;*/
+      padding-left: 8px;
+      padding-right: 8px;
+      }
+      </style>
+
+  <script type="text/javascript">
+
+    var delayb4scroll=1000 //Specify initial delay before marquee starts to scroll on page (2000=2 seconds)
+    var marqueespeed=1 //Specify marquee scroll speed (larger is faster 1-10)
+    var pauseit=1 //Pause marquee onMousever (0=no. 1=yes)?
+
+
+     function scrollmarquee(){
+     if (parseInt(cross_marquee.style.top)>(actualheight*(-1)+8))
+      cross_marquee.style.top=parseInt(cross_marquee.style.top)-copyspeed+"px"
+      else
+      cross_marquee.style.top=parseInt(marqueeheight)+8+"px"
+      }
+
+      function initializemarquee(){
+       cross_marquee=document.getElementById("vmarquee")
+        cross_marquee.style.top=0
+        marqueeheight=document.getElementById("marqueecontainer").offsetHeight
+        actualheight=cross_marquee.offsetHeight //height of marquee content (much of which is hidden from view)
+          if (window.opera || navigator.userAgent.indexOf("Netscape/7")!=-1){ //if Opera or Netscape 7x, add scrollbars to scroll and exit
+        cross_marquee.style.height=marqueeheight+"px"
+       cross_marquee.style.overflow="scroll"
+       return
+        }
+         setTimeout('lefttime=setInterval("scrollmarquee()",30)', delayb4scroll)
+         }
+
+      if (window.addEventListener)
+       window.addEventListener("load", initializemarquee, false)
+   else if (window.attachEvent)
+      window.attachEvent("onload", initializemarquee)
+    else if (document.getElementById)
+      window.onload=initializemarquee
+
+  </script>  -->
+  <!--news scoller end-->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--info-grafics-->
+    <div class="container my-3 p-1" style="min-height: 15rem;">
+        <div class="row align-items-center">
+            <div class="col-12 col-sm-12">
+                <h4 class="text-center"><i class="large tags icon"></i> InfoGraphics</h4>
+                <!--<div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                      <h6 class="m-0 font-weight-bold text-primary text-center">Info-graphics</h6>
+                    </div>
+                    <div class="card-body">
+                      <h4 class="small font-weight-bold">--add--</h4>-->
+                      <div id="slideshow" class="container1">
+                        <img class="is-active" src="https://cdn3.vectorstock.com/i/1000x1000/71/32/virus-corona-covid-19-infographic-geometric-design-vector-30187132.jpg" alt="" />
+                      </div>
+                      <div id="modal01" class="modal" onclick="this.style.display='none'">
+                        <span class="close">&times;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <div class="modal-content">
+                          <img id="img01" style="max-width:100%">
+                        </div>
+                      </div>
+              </div>
+          </div>
+
+      </div>
+       <!-- </div>
+    </div>-->
+
+    <!--youtube/twitter-->
+    <div class="container my-3 p-3" style="min-height: 20rem;">
+        <div class="row">
+            <div class="col-12 col-sm-6">
+
+                <!-- Youtube Card -->
+
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold  text-center"><i class="large red youtube icon"></i>Youtube</h6>
+                </div>
+                <div class="card-body">
+                  <h4 class="small font-weight-bold">
+                    <iframe id="ytplayer" type="text/html" width="100%" height="360"
+                    src="https://www.youtube.com/embed?listType=user_uploads&list=who"
+                    frameborder="0"></iframe>
+                  </h4>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6">
+
+                <!-- Twitter Card -->
+
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold  text-center"><i class="large blue twitter icon"></i>Twitter</h6>
+                </div>
+                <div class="card-body">
+                  <h4 class="small font-weight-bold">
+                    <a class="twitter-timeline" href="https://twitter.com/WHO" data-width="100%"
+                    data-height="360" data-chrome="noheader nofooter"></a>
+                     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                  </h4>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <div class="copyright text-center my-3">
+      <span>Copyright &copy; Team BITSians 2020</span>
+    </div>
+</footer>
+<script>
+		var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+		if (isMobile) {
+      console.log("HE HE MOBILE USER YOU WILL NEVER GET THIS MESSAGE");
+		} else {
+			document.getElementById("index_plasma").classList.add("active");
+		}
+</script>
+
+
+
+
+<style>
+  .modal {
+z-index:2;
+display:none;
+padding-top:10px;
+position:fixed;
+left:0;
+top:0;
+width:100%;
+height:100%;
+overflow:auto;
+background-color:rgb(0,0,0);
+background-color:rgba(0,0,0,0.8)
+}
+
+.modal-content{
+margin: auto;
+display: block;
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+
+
+.close {
+text-decoration:none;float:right;font-size:24px;font-weight:bold;color:white
+}
+
+.modal-content, #caption {
+
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)}
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+</style>
+<script>
+  function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+}
+</script>
+
+ <!-- Bootstrap 4.5 JS, Popper.js, and jQuery -->
+ <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+ <script src="infograhics.js"></script>
+
+ <!--global news-->
+ <script src="globalnews.js"></script>
+
+ <!--news1-->
+ <script src="news1.js"></script>
+
+ <script src="news-scroller.js"></script>
+
+
+ <!--covid stats with location-->
+ <script type="text/javascript" src="stats.js"></script>
+ <!--fetches flag
+ <script src="flag.js"></script> -->
+</body>
+
+   <%- include("./partials/footer") %>
+    <!-- <script>
+        document.getElementById("home").classList.add("active")
+    </script>
+    <script type="text/javascript" src="geo.js"></script>  -->

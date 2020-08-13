@@ -7,9 +7,7 @@ adddonorref.on("value", function(snapshot) {
     snapshot.forEach(function(childsnapshot){
       var item = childsnapshot.val();
       donorHTMLitem += "<div class'patientHTMLitem'><hr><ul></div>";
-      //patientHTMLitem += "<li> Time : <span>"+ item.time + "</span></li>"
       donorHTMLitem += "<li><b> Date : </b><span>"+ item.date + "</span></li>"
-      //patientHTMLitem += "<li> Contact : <span>"+ item.contact + "</span></li>"
       donorHTMLitem += "<li><b> Patient Name : </b><span>"+ item.patientName + "</span></li>"
       donorHTMLitem += "<li><b> Mobile Number : </b><span>"+ item.mobileNumber + "</span></li>"
       donorHTMLitem += "<li><b> Email : </b><span>"+ item.emailAddress + "</span></li>"
@@ -37,9 +35,7 @@ adddonorref.on("value", function(snapshot) {
         snapshot.forEach(function(childsnapshot){
           var item = childsnapshot.val();
           patientHTMLitem += "<div class'patientHTMLitem'><hr><ul></div>";
-          //patientHTMLitem += "<li> Time : <span>"+ item.time + "</span></li>"
           patientHTMLitem += "<li><b> Date : </b><span>"+ item.date + "</span></li>"
-          //patientHTMLitem += "<li> Contact : <span>"+ item.contact + "</span></li>"
           patientHTMLitem += "<li><b> Patient Name : </b><span>"+ item.patientName + "</span></li>"
           patientHTMLitem += "<li><b> Mobile Number : </b><span>"+ item.mobileNumber + "</span></li>"
           patientHTMLitem += "<li><b> Email : </b><span>"+ item.emailAddress + "</span></li>"
@@ -66,12 +62,6 @@ function donorFuzzy(){
       snapshot.forEach(function(childsnapshot){
         var item = childsnapshot.val();
         if(filter(item)){
-                 //donorHTMLitem += "<div class'patientHTMLitem'><hr><ul></div>";
-          //patientHTMLitem += "<li> Time : <span>"+ item.time + "</span></li>"
-          //donorHTMLitem += "<li><b> Date : </b><span>"+ item.date + "</span></li>";
-          //patientHTMLitem += "<li> Contact : <span>"+ item.contact + "</span></li>"
-          //donorHTMLitem += '<div class="container">';
-          //donorHTMLitem += '<div class="row">';
           donorHTMLitem += '<div class="col-12 col-sm-6 p-5">'
           donorHTMLitem += '<div class="card bg-light mb-3 border-dark" style="max-width: auto;">';//1
           donorHTMLitem += '<div class="card-header text-center bg-dark">'
@@ -81,9 +71,6 @@ function donorFuzzy(){
           donorHTMLitem += '  <li class="nav-item ml-auto"><a class="nav-link bg-light text-primary" role="button" data-toggle="collapse" aria-expanded="true" href="#info">Info</a></li>'
           donorHTMLitem += '  </ul>'
           donorHTMLitem += '</div>'
-          
-          //donorHTMLitem +=    '<h5 class="card-title">Info card title</h5>'
-
           donorHTMLitem += "<div id='active'>"
           donorHTMLitem +=  '<div class="card-body text-dark text-center pr-5">'//2
           donorHTMLitem +=    "<div class='card-text text-left pt-4'><ul>";//3

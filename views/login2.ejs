@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Firebase Server Auth</title>
+  <link rel="stylesheet" href="loginstyle.css" />
+  <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js" defer></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js" defer></script>
+</head>
+
+<body style="overflow: hidden;display: flex;align-items: center;justify-content: center;">
+  <main>
+    <section>
+      <form class="form" id="login">
+        <h1>LOGIN</h1>
+        <input type="text" name="login" />
+        <input type="password" name="password" />
+        <button>Log in</button>
+        <p><a href="/login">Go Back</a></p>
+      </form>
+    </section>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const firebaseConfig = {
+          apiKey: "AIzaSyChax-RIyl8an4nKJA0XLdIc8CyU3jeGgY",
+          authDomain: "here-maps-bitsians.firebaseapp.com",
+          databaseURL: "https://here-maps-bitsians.firebaseio.com",
+          projectId: "here-maps-bitsians",
+          storageBucket: "here-maps-bitsians.appspot.com",
+          messagingSenderId: "517005193635",
+          appId: "1:517005193635:web:846d53aebc789427b0ea16"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE);
+
+        document
+          .getElementById("login")
+          .addEventListener("submit", (event) => {
+            event.preventDefault();
+            const login = event.target.login.value;
+            const password = event.target.password.value;
+
+            firebase
+              .auth()
+              .signInWithEmailAndPassword(login, password)
+              .then(({ user }) => {
+                return user.getIdToken().then((idToken) => {
+                  return fetch("/sessionLogin", {
+                    method: "POST",
+                    headers: {
+                      Accept: "application/json",
+                      "Content-Type": "application/json",
+                      "CSRF-Token": Cookies.get("XSRF-TOKEN"),
+                    },
+                    body: JSON.stringify({ idToken }),
+                  });
+                });
+              })
+              .then(() => {
+                return firebase.auth().signOut();
+              })
+              .then(() => {
+                window.location.assign("/profile");
+              });
+            return false;
+          });
+      });
+    </script>
+  </main>
+</body>
+
+</html>

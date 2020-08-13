@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang= "en">
+    <head>
+      <title>
+        CareQuest
+      </title>
+      <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1.0" />
+      <script src="/creds.js"></script>
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha256-9mbkOfVho3ZPXfM7W8sV2SndrGDuh7wuyLjtsWeTI1Q=" crossorigin="anonymous" />
+      <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <link id="theme" rel="stylesheet" type="text/css" href="light-theme.css" />
+      <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="ui inverted pointing menu stackable">
+            <a id="about" href="/" class="item header">Home</a>
+            <a id="index_plasma" href="/index_plasma" class="item">Dashboard</a>
+            <a id="map" href="/map" class="item">Track A Bed</a>
+            <a id="plasma_bank" href="/plasma_bank" class="item">Plasma Bank</a>
+            <a id="log-in" href="/login" class="item">CareNet</a>
+            <a id="technology" href="/AboutProject" class="item">About</a>
+            <div class="ui fluid inverted two column centered grid menu">
+                <span class="fluid item" id="status">CareQuest</span>
+            </div>
+            <a class="item" href="/beta_login" ><i class="map icon"></i></a>
+            <a class="item" href="/faq" ><i class="info icon"></i></a>
+            <a class="item" id="theme-toggle"><i class="moon icon"></i></a>
+            <div class="hamburger">
+                <span class="hamburger-bun"></span>
+                <span class="hamburger-patty"></span>
+                <span class="hamburger-bun"></span>
+            </div>
+        </div>
+        <div class="ui container">
+          <h3 class="ui header">Editing Hospital with ID : <span><%= hospital._id  %></span></h3>
+<!-- =============PROFILE=============== -->
+<div class="main-item ui segment" id="profile-page">
+  <div class="ui segment">
+  <h2 class="ui header"><button id="EditProfilePageBtn" class="ui mini positive right floated button">EDIT</button>
+    <i class="blue colored user icon"></i>
+    <div class="content">
+      PROFILE
+      <div class="sub header"></div>
+    </div>
+  </h2>
+    <hr>
+    </div>
+    <form>
+      <div class="ui form" id="new-form">
+        <div class="ui dividing green header">
+          Hospital
+        </div>
+          <div class="fields">
+            <div class="eleven wide field">
+              <label>Hospital Name</label>
+              <input type="text" id="mh-hname" readonly>
+            </div>
+            <div class="five wide field">
+              <label>Hospital Type</label>
+              <input type="text" id="mh-htype" readonly>
+            </div>
+          </div>
+        <div class="ui dividing green header">Location</div>
+        <h4 class="ui header">Location Geographical Coordinates<a target="_blank" href="https://www.latlong.net/"><i class="question circle black icon" data-content="Click here to get Coordinates of the hospital"></i></a></h4>
+          <div class="two fields">
+            <div class="field">
+              <label>Latitude</label>
+              <input type="text" id="mh-x" readonly>
+            </div>
+            <div class="field">
+              <label>Longitude</label>
+              <input type="text" id="mh-y" readonly>
+            </div>
+          </div>
+        <h4 class="ui green header">Headquarters Address</h4>
+          <div class="field">
+            <label>Address</label>
+            <input type="text" id="mh-hq-add" readonly>
+          </div>
+          <div class="three fields">
+            <div class="field">
+              <label>City</label>
+              <input type="text" id="mh-hq-city" readonly>
+            </div>
+            <div class="field">
+              <label>State</label>
+              <input type="text" id="mh-hq-state" readonly>
+            </div>
+            <div class="field">
+              <label>Zip Code</label>
+              <input type="text" id="mh-hq-zip" readonly>
+            </div>
+          </div>
+        <h4 class="ui green header">Hospital Address</h4>
+          <div class="three fields">
+            <div class="field">
+              <label>County/City </label>
+              <input type="text" id="mh-county" readonly>
+            </div>
+            <div class="field">
+              <label>State</label>
+              <input type="text" id="mh-state" readonly>
+            </div>
+            <div class="field" style="display:none">
+              <label>FID</label>
+              <input type="text" id="mh-fid" readonly>
+            </div>
+            <div class="field">
+              <label>FIPS</label>
+              <input type="text" id="mh-fips" readonly>
+            </div>
+          </div>
+          <div class="ui buttons" id="ProfileSubmitBtnGrp">
+            <div class="ui animated blue button" type="submit" id="submitprofilebtn">
+              <div class="visible content">Save Changes</div>
+              <div class="hidden content"><i class="paper plane icon"></i></div>
+            </div>
+            <div class="ui animated red button" type="submit" id="cancelprofilebtn">
+              <div class="visible content">Cancel</div>
+              <div class="hidden content"><i class="trash icon"></i></div>
+            </div>
+          </div>
+        </div>
+      
+    </form>
+  </div>
+<!-- ===========MANAGE================= -->
+<div class="main-item ui segment" id="Manage-Hospital">
+  <div class="ui segment">
+    <h2 class="ui header"><button id="EditManagePageBtn" class="ui mini positive right floated button">EDIT</button>
+      <i class="red colored hospital icon"></i>
+      <div class="content">    
+          RESOURCE MANAGEMENT
+        <div class="sub header">Manage your Resources</div>
+      </div>
+    </h2>
+      <hr>
+      </div>
+    <form class="ui form">
+      <div class="ui subheader" style="color:green;">
+        This information will help us in resource allocation
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>Licensed Beds</label>
+          <input type="number" id="mh-beds" readonly>
+        </div>
+        <div class="field">
+          <label>Staffed Beds</label>
+          <input type="number" id="mh-st-beds" readonly>
+        </div>
+      </div>
+      <div class="three fields">
+        <div class="field">
+          <label>ICU Beds</label>
+          <input type="number" id="mh-icu-beds" readonly>
+        </div>
+        <div class="field">
+          <label>Adult ICU Beds</label>
+          <input type="number" id="mh-aicu-beds" readonly>
+        </div>
+        <div class="field">
+          <label>Pediatric ICU Beds</label>
+          <input id="mh-picu-beds" readonly>
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>Bed Utilization</label>
+          <input type="number" id="mh-util" readonly>
+        </div>
+        <div class="field">
+          <label>Expected Bed Capacity Increase</label>
+          <input type="number" id="mh-inc" readonly>
+        </div>
+      </div>
+      <div class="inline fields">
+        <label>Average Ventilator utilization</label>
+        <div class="fourteen wide field">
+          <input type="number" id="mh-avg-vent" readonly>
+        </div>
+      </div>
+      <div class="ui buttons" id="ManageSubmitBtnGrp">
+        <div class="ui animated blue button" type="submit" id="submitmanagebtn">
+          <div class="visible content">Save Changes</div>
+          <div class="hidden content"><i class="paper plane icon"></i></div>
+        </div>
+        <div class="ui animated red button" type="submit" id="cancelmanagebtn">
+          <div class="visible content">Cancel</div>
+          <div class="hidden content"><i class="trash icon"></i></div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+<!-- //================AJAX SCRIPTS====================// -->
+<script>
+//================DASHBOARD AJAX==============//
+
+function apiGet(){
+  //testing id - 5f1ff6422735334c686b92e3
+  $("#Manage-Hospital").addClass("loading");
+  $("#profile-page").addClass("loading");
+  var id = "<%= hospital._id %>";
+$.ajax({
+  type : "GET",
+  url : "/api/",
+  data : {_id:id},
+  dataType:"json",
+  async:false,
+  success: function(result){
+    //first empty dashboard========>
+    $("#Manage-Hospital").removeClass("loading");
+    $("#profile-page").removeClass("loading");
+    
+    
+    //these for profile
+    $("#mh-x").val("");
+    $("#mh-y").val("");
+    $("#mh-fid").val("");
+    $("#mh-hname").val("");
+    $("#mh-htype").val("");
+    $("#mh-hq-add").val("");
+    $("#mh-hq-city").val("");
+    $("#mh-hq-state").val("");
+    $("#mh-hq-zip").val("");
+    $("#mh-county").val("");
+    $("#mh-state").val("");
+    $("#mh-fips").val("");
+    //these for manage
+    $("#mh-beds").val("");
+    $("#mh-mh-st-beds").val("");
+    $("#mh-mh-icu-beds").val("");
+    $("#mh-aicu-beds").val("");
+    $("#mh-picu-beds").val("");
+    $("#mh-util").val("");
+    $("#mh-inc").val("");
+    $("#mh-avg-vent").val("");
+    //then append data=========>
+    //profile tab
+    $("#mh-x").val(result.X);
+    $("#mh-y").val(result.Y);
+    $("#mh-fid").val(result.FID);
+    $("#mh-hname").val(result.HOSPITAL_NAME);
+    $("#mh-htype").val(result.HOSPITAL_TYPE);
+    $("#mh-hq-add").val(result.HQ_ADDRESS);
+    $("#mh-hq-city").val(result.HQ_CITY);
+    $("#mh-hq-state").val(result.HQ_STATE);
+    $("#mh-hq-zip").val(result.HQ_ZIP_CODE);
+    $("#mh-county").val(result.COUNTY_NAME);
+    $("#mh-state").val(result.STATE_NAME);
+    $("#mh-fips").val(result.FIPS);
+    //manage tab
+    $("#mh-beds").val(result.NUM_LICENSED_BEDS);
+    $("#mh-st-beds").val(result.NUM_STAFFED_BEDS);
+    $("#mh-icu-beds").val(result.NUM_ICU_BEDS);
+    $("#mh-aicu-beds").val(result.ADULT_ICU_BEDS);
+    $("#mh-picu-beds").val(result.PEDI_ICU_BEDS)
+    $("#mh-util").val(result.BED_UTILIZATION);
+    $("#mh-inc").val(result.Potential_Increase_In_Bed_Capac);
+    $("#mh-avg-vent").val(result.AVG_VENTILATOR_USAGE);
+  },
+  error : function(e) {
+    //user interactive errors
+    console.log("ERROR: ", e);
+    $("#Manage-Hospital").addClass("disabled");
+  $("#profile-page").addClass("disabled");
+  }
+});   
+}
+function apiUpdate(id){
+  //testing id - 5f1ff6422735334c686b92e3
+  $("#Manage-Hospital").addClass("loading");
+  $("#profile-page").addClass("loading");
+  var id = "<%= hospital._id %>";
+var req_body = {
+    _id:id,
+    X : $("#mh-x").val(),
+    Y : $("#mh-y").val(),
+    FID : $("#mh-fid").val(),
+    HOSPITAL_NAME : $("#mh-hname").val(),
+    HOSPITAL_TYPE : $("#mh-htype").val(),
+    HQ_ADDRESS :  $("#mh-hq-add").val(),
+    HQ_CITY:  $("#mh-hq-city").val(),
+    HQ_STATE :  $("#mh-hq-state").val(),
+    HQ_ZIP_CODE :   $("#mh-hq-zip").val(),
+    COUNTY_NAME :  $("#mh-county").val(),
+    STATE_NAME :  $("#mh-state").val(),
+    FIPS :  $("#mh-fips").val(),
+    //manage tab
+    NUM_LICENSED_BEDS :  $("#mh-beds").val(),
+    NUM_STAFFED_BEDS  :  $("#mh-st-beds").val(),
+    NUM_ICU_BEDS  :  $("#mh-icu-beds").val(),
+    ADULT_ICU_BEDS  :  $("#mh-aicu-beds").val(),
+    PEDI_ICU_BEDS : $("#mh-picu-beds").val(),
+    BED_UTILIZATION :  $("#mh-util").val(),
+    Potential_Increase_In_Bed_Capac : $("#mh-inc").val(),
+    AVG_VENTILATOR_USAGE  :  $("#mh-avg-vent").val()
+}
+$.ajax({
+  type : "PUT",
+  url : "/api/",
+  data : req_body,
+  dataType:"json",
+  async:false,
+  success: function(result){
+    $("#Manage-Hospital").removeClass("loading");
+    $("#profile-page").removeClass("loading");
+    //first empty dashboard========>
+    //these for profile
+    $("#mh-x").val("");
+    $("#mh-y").val("");
+    $("#mh-fid").val("");
+    $("#mh-hname").val("");
+    $("#mh-htype").val("");
+    $("#mh-hq-add").val("");
+    $("#mh-hq-city").val("");
+    $("#mh-hq-state").val("");
+    $("#mh-hq-zip").val("");
+    $("#mh-county").val("");
+    $("#mh-state").val("");
+    $("#mh-fips").val("");
+    //these for manage
+    $("#mh-beds").val("");
+    $("#mh-mh-st-beds").val("");
+    $("#mh-mh-icu-beds").val("");
+    $("#mh-aicu-beds").val("");
+    $("#mh-picu-beds").val("");
+    $("#mh-util").val("");
+    $("#mh-inc").val("");
+    $("#mh-avg-vent").val("");
+    //then append data=========>
+    //profile tab
+    $("#mh-x").val(result.X);
+    $("#mh-y").val(result.Y);
+    $("#mh-fid").val(result.FID);
+    $("#mh-hname").val(result.HOSPITAL_NAME);
+    $("#mh-htype").val(result.HOSPITAL_TYPE);
+    $("#mh-hq-add").val(result.HQ_ADDRESS);
+    $("#mh-hq-city").val(result.HQ_CITY);
+    $("#mh-hq-state").val(result.HQ_STATE);
+    $("#mh-hq-zip").val(result.HQ_ZIP_CODE);
+    $("#mh-county").val(result.COUNTY_NAME);
+    $("#mh-state").val(result.STATE_NAME);
+    $("#mh-fips").val(result.FIPS);
+    //manage tab
+    $("#mh-beds").val(result.NUM_LICENSED_BEDS);
+    $("#mh-st-beds").val(result.NUM_STAFFED_BEDS);
+    $("#mh-icu-beds").val(result.NUM_ICU_BEDS);
+    $("#mh-aicu-beds").val(result.ADULT_ICU_BEDS);
+    $("#mh-picu-beds").val(result.PEDI_ICU_BEDS)
+    $("#mh-util").val(result.BED_UTILIZATION);
+    $("#mh-inc").val(result.Potential_Increase_In_Bed_Capac);
+    $("#mh-avg-vent").val(result.AVG_VENTILATOR_USAGE);
+  },
+  error : function(e) {
+    //user interactive errors
+    console.log("ERROR: ", e);
+    console.log("FAILED");
+    $("#Manage-Hospital").addClass("disabled");
+    $("#profile-page").addClass("disabled");
+  }
+});   
+}
+//===================================
+function dbDataRetriever(){
+  apiGet();
+}
+function dbDataUpdater(){
+  apiUpdate();
+}
+//================FOR MANAGE ==============//
+$(document).ready(function(){
+$('#ProfileSubmitBtnGrp').hide();
+$('#ManageSubmitBtnGrp').hide();
+apiGet();
+$('#EditManagePageBtn').click(function(){
+  $('input').attr('readonly',false);
+  $('#EditManagePageBtn').hide();
+  $('#ManageSubmitBtnGrp').show();
+});
+$('#submitmanagebtn').click(function(){
+  $('input').attr('readonly',true);
+  dbDataUpdater();
+  $('#EditManagePageBtn').show();
+  $('#ManageSubmitBtnGrp').hide();
+})
+$('#cancelmanagebtn').click(function(){
+  $('input').attr('readonly',true);
+  dbDataRetriever();
+  $('#EditManagePageBtn').show();
+  $('#ManageSubmitBtnGrp').hide();
+})
+$('#EditProfilePageBtn').click(function(){
+  $('input').attr('readonly',false);
+  $('#EditProfilePageBtn').hide();
+  $('#ProfileSubmitBtnGrp').show();
+});
+$('#submitprofilebtn').click(function(){
+  $('input').attr('readonly',true);
+  dbDataUpdater();
+  $('#EditProfilePageBtn').show();
+  $('#ProfileSubmitBtnGrp').hide();
+})
+$('#cancelprofilebtn').click(function(){
+  $('input').attr('readonly',true);
+  dbDataRetriever();
+  $('#EditProfilePageBtn').show();
+  $('#ProfileSubmitBtnGrp').hide();
+})
+})
+
+$('i').popup();
+
+
+
+
+</script>
+
+
+<script src="/design.js"></script>
+</body>
+</html>

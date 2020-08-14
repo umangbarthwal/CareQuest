@@ -8,7 +8,7 @@
 
 1. [Short description](#short-description)
 1. [Demo video](#demo-video)
-1. [The architecture](#the-architecture)
+1. [Architecture](#Architecture)
 1. [Live demo](#live-demo)
 1. [Built with](#built-with)
 1. [Contributing](#contributing)
@@ -33,7 +33,7 @@ CareQuest aims to bring order to the chaos caused by COVID-19. To do so, CareQue
 
 [![Watch the video](https://github.com/barthwalumang/CareQuest/blob/master/public/Logo%20+%20play.png?raw=true)](link without quotes)
 
-## The architecture
+## Architecture
 
 <p align="center"><img src="https://github.com/barthwalumang/CareQuest/blob/master/public/architecture.png?raw=true" width = "66%" height = "66%"></p>
 

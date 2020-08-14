@@ -123,10 +123,11 @@ app.use((req, res, next) => {
   }
   function isAdmin(req,res,next){
 	if(req.user){
-		hospital.on("value", function(snapshot) {
+		hospital.once("value", function(snapshot) {
 			snapshot.forEach(function(childsnapshot){
-				if(childsnapshot.val().admin){
-					if(req.user.uid == childsnapshot.val().user_id){
+				if(req.user.uid == childsnapshot.val().user_id){
+					if(childsnapshot.val().admin){
+						req.role = childsnapshot.val();
 						res.locals.role = childsnapshot.val();
 						next();
 					} else {
@@ -224,7 +225,7 @@ app.get("/faq",(req,res)=> {
 app.get("/admin/findEmail",function(req,res){
 	var id = req.query._id;
 	var results = [];
-	hospital.on("value",function(snapshot){
+	hospital.once("value",function(snapshot){
 		snapshot.forEach(function(childsnapshot){
 			if(childsnapshot.val().object_id == id){
 				results.push(childsnapshot.val());
@@ -245,13 +246,44 @@ app.get("/admin/getUser",function(req,res){
 })
 app.get("/admin/role",function(req,res){
 	var uid = req.query.uid;
-	hospital.on("value",function(snapshot){
+	hospital.once("value",function(snapshot){
 		snapshot.forEach(function(childsnapshot){
 			if(childsnapshot.val().user_id == uid){
 				res.send(childsnapshot.val());
 			}
 		})
 	});
+})
+app.get("/admin/updateRole",(req,res)=>{
+	var uid = req.query.uid;
+	var email = req.query.email;
+	var emailVerified = req.query.emailVerified;
+	var id_verif = req.query.id_verif;
+	var object_id = req.query.object_id;
+	var time = req.query.time;
+    hospital.once("value", function(snapshot) {
+    snapshot.forEach(function(childsnapshot){
+      if(childsnapshot.val().user_id == uid){
+		  
+		//here attach the id of the matched snapshot the mongo id
+		var email_verif_set = {
+			user_id: uid,
+			id_verif: id_verif,
+			email: email,
+			object_id: object_id,
+			email_verif: ((emailVerified == "true")? 1 : 0),
+			time: time      
+		};
+		admin.database().ref('mongo_hospital/' + email_verif_set.user_id).set(email_verif_set,function(err){
+			if(err) {
+				res.send(err);
+			} else {
+				res.send("Success : Updated Successfully!");
+			}
+		});
+      }
+    });
+  })
 })
 app.get("/admin/createUser",function(req,res){
 	var email = req.query.email;

@@ -1,23 +1,23 @@
 {
-  "name": "CareQuest",
+  "name": "here-maps-bitsians",
   "version": "1.0.0",
-  "description": "hackforafrica app",
+  "description": "hackathon app",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/barthwalumang/CareQuest.git"
+    "url": "git+https://github.com/mightyjoe781/Here-Maps-BITSians.git"
   },
-  "author": "themightyjoe781",
-  "license": "apache",
+  "author": "Flux,MightyJoe",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/barthwalumang/CareQuest/issues"
+    "url": "https://github.com/mightyjoe781/Here-Maps-BITSians/issues"
   },
-  "homepage": "https://github.com/barthwalumang/CareQuest#readme",
+  "homepage": "https://github.com/mightyjoe781/Here-Maps-BITSians#readme",
   "dependencies": {
-    "@sendgrid/mail": "^7.2.3",
+    "@sendgrid/mail": "^7.2.2",
     "body-parser": "^1.19.0",
     "chalk": "^4.1.0",
     "client-sessions": "^0.8.0",
@@ -30,11 +30,11 @@
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "express-status-monitor": "^1.3.3",
-        "firebase": "^7.17.2",
-    "firebase-admin": "^9.0.0",
+    "firebase": "^7.16.1",
+    "firebase-admin": "^8.13.0",
     "lodash": "^4.17.19",
     "lusca": "^1.6.1",
-    "mongoose": "^5.9.28",
+    "mongoose": "^5.9.25",
     "morgan": "^1.10.0",
     "nodemailer": "^6.4.11",
     "passport": "^0.4.1",

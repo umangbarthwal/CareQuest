@@ -11,7 +11,6 @@
 1. [Architecture](#Architecture)
 1. [Live demo](#live-demo)
 1. [Built with](#built-with)
-1. [Contributing](#contributing)
 1. [Authors](#authors)
 1. [License](#license)
 
@@ -71,3 +70,15 @@ You can find a running system to test at [text](enter link without quotes)
 * [AOS](https://michalsnik.github.io/aos/) - Animation for landing and Plasma Bank pages
 * [Bootstrap](https://getbootstrap.com/) - Frontend components
 * [Semantic UI](https://semantic-ui.com/) - UI/UX Design
+
+## Authors
+
+* **Prashant Jha** - *Backend* - [pjflux2001](https://github.com/pjflux2001)
+* **Sudhanshu Mohan Kashyap** - *Backend And Frontend* - [mightyjoe781](https://github.com/mightyjoe781)
+* **Umang Barthwal** - *Backend And Frontend* - [barthwalumang](https://github.com/barthwalumang)
+* **Apoorv Garg** - *Frontend* - [ApEdu](https://github.com/ApEdu)
+* **Aayush Kaushal** - *Frontend* - [Aayush-7](https://github.com/Aayush-7)
+
+## License
+
+This project is licensed under the Apache 2 License - see the [LICENSE](LICENSE) file for details

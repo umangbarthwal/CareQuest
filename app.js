@@ -274,9 +274,9 @@ app.get("/admin/updateUser",function(req,res){
 	var uid = req.query.uid;
 	var email = req.query.email;
 	var phoneNumber = req.query.phoneNumber;
-	var emailVerified = req.query.emailVerified;
+	var emailVerified = (req.query.emailVerified == 'true' ? true : false);
 	var displayName = req.query.displayName;
-	var disabled = req.query.disabled;
+	var disabled = (req.query.disabled == 'true' ? true : false);
 	admin.auth().updateUser(uid, {
 		email: email,
 		phoneNumber: phoneNumber,

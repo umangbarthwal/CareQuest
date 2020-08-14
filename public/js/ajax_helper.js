@@ -154,3 +154,137 @@
       }
   })
 }
+function authRetriever(){
+  $("#seg-1").addClass("loading");
+  var search_query = {
+    email : $("#email_id")[0].textContent,
+  }
+  $.ajax({
+    type : "GET",
+    contentType: "application/json",
+    url : "/admin/getUser",
+    data : search_query,
+    dataType:"json",
+    success: function(result){
+      //clearing the  space
+      console.log(result)
+      $("#displayName").val("");
+      $("#email").val("");
+      $("#phoneNumber").val("");
+      $("#emailVerified").val("");
+      $("#disabled").val("");
+      //=================FILling RESULT=====//
+      $("#displayName").val(result.displayName);
+      $("#email").val(result.email);
+      $("#phoneNumber").val(result.phoneNumber);
+      $("#emailVerified").val(result.emailVerified);
+      $("#disabled").val(result.disabled);
+      $("#seg-1").removeClass("loading");
+    },
+    error : function(e) {
+      $("#seg-1").removeClass("loading");
+      $("#seg-1").addClass("disabled");
+      console.log("ERROR: ", e);
+    }
+  });  
+}
+function authUpdater(){
+  $("#seg-1").addClass("loading");
+  
+  var search_query = {
+    uid : $("#uid")[0].textContent,
+    email : $("#email").val(),
+    phoneNumber : $("#phoneNumber").val(),
+    emailVerified : ($("#emailVerified")[0].checked),
+    disabled : ($("#disabled")[0].checked),
+    displayName : $("#displayName").val()
+  }
+  $.ajax({
+    type : "GET",
+    contentType: "application/json",
+    url : "/admin/updateUser",
+    data : search_query,
+    dataType:"json",
+    success: function(result){
+      console.log(result)
+      //clearing the  space
+      $("#displayName").val("");
+      $("#email").val("");
+      $("#phoneNumber").val("");
+      $("#emailVerified").val("");
+      $("#disabled").val("");
+      //=================FILling RESULT=====//
+      $("#displayName").val(result.displayName);
+      $("#email").val(result.email);
+      $("#phoneNumber").val(result.phoneNumber);
+      if(result.emailVerified){
+        $("#emailVerified")[0].checked == true;
+      } else {
+        $("#emailVerified")[0].checked == false;
+      }
+      if(result.disabled){
+        $("#disabled")[0].checked == true;
+      } else {
+        $("#disabled")[0].checked == false;
+      }
+      $("#seg-1").removeClass("loading");
+    },
+    error : function(e) {
+      $("#seg-1").removeClass("loading");
+      $("#seg-1").addClass("disabled");
+      console.log("ERROR: ", e);
+    }
+  });  
+}
+function userRetriever(){
+  $("#seg-2").addClass("loading");
+  var search_query = {
+    uid : $("#uid").text()
+  }
+  $.ajax({
+    type : "GET",
+    contentType: "application/json",
+    url : "/admin/role",
+    data : search_query,
+    dataType:"json",
+    success: function(result){
+      $('#id_verif').val(result.id_verif);
+      $('#object_id').val(result.object_id);
+      $('#time').val(result.time);
+      $("#seg-2").removeClass("loading")
+      console.log("Success: ", result);
+      getHospital(result.object_id);
+    },
+    error : function(e) {
+      console.log("ERROR: ", e);
+      $("#seg-2").removeClass("loading")
+      $("#seg-2").addClass("disabled");
+    }
+  });
+}
+function userUpdater(){
+  $("#seg-2").addClass("loading");
+  var search_query = {
+    uid : $("#uid").text()
+  }
+  $.ajax({
+    type : "GET",
+    contentType: "application/json",
+    url : "/admin/role",
+    data : search_query,
+    dataType:"json",
+    success: function(result){
+      $('#id_verif').val(result.id_verif);
+      $('#object_id').val(result.object_id);
+      $('#time').val(result.time);
+      $("#seg-2").removeClass("loading")
+      console.log("Success: ", result);
+      getHospital(result.object_id);
+    },
+    error : function(e) {
+      console.log("ERROR: ", e);
+      $("#seg-2").removeClass("loading")
+      $("#seg-2").addClass("disabled");
+    }
+  });
+}

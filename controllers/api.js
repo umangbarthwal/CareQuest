@@ -86,5 +86,5 @@ exports.fuzzySearch = (req,res)=>{
 		} else {
 			res.send(data);
 		}
-	})
+	}).limit(100);
 }

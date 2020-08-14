@@ -1,453 +1,453 @@
 <script>
-    //LOCATION GET
+      //LOCATION GET
 
-
-    function fuzzynameGet() {
-        var search_query = {
-            HOSPITAL_NAME: $("#HOSPITAL_NAME").val(),
-            STATE_NAME: "",
-            COUNTY_NAME: "",
-            HQ_CITY: "",
-        }
-        $.ajax({
-            type: "GET",
-            contentType: "application/json",
-            url: "/api/fuzzy",
-            data: search_query,
-            dataType: "json",
-            success: function (result) {
-                $('#getResultDiv2 ul').empty();
-                $.each(result, function (i, hospital) {
-                    $('#getResultDiv2 .list-group').append("HOSPITAL NAME - " + hospital.HOSPITAL_NAME + " FID KEY- " + hospital.FID + "<br>")
-                });
-                console.log("Success: ", result);
-            },
-            error: function (e) {
-                $("#getResultDiv2").html("<strong>Error</strong>");
-                console.log("ERROR: ", e);
-            }
-        });
+  
+  function fuzzynameGet(){
+    var search_query = {
+      HOSPITAL_NAME : $("#HOSPITAL_NAME").val(),
+      STATE_NAME : "",
+      COUNTY_NAME : "",
+      HQ_CITY : "",
     }
-
-    //FILTER MECHANISM
-    function fuzzyfilterGet() {
-        var search_query = {
-            HOSPITAL_NAME: $("#HOSPITAL_NAME").val(),
-            STATE_NAME: $("#STATE_NAME").val(),
-            COUNTY_NAME: $("#COUNTY_NAME").val(),
-            HQ_CITY: "",
-        }
-        $.ajax({
-            type: "GET",
-            contentType: "application/json",
-            url: "/api/fuzzy",
-            data: search_query,
-            dataType: "json",
-            success: function (result) {
-                $('#getResultDiv2 ul').empty();
-                $.each(result, function (i, hospital) {
-                    $('#getResultDiv2 .list-group').append("HOSPITAL NAME - " + hospital.HOSPITAL_NAME + " FID KEY- " + hospital.FID + "<br>")
-                });
-                console.log("Success: ", result);
-            },
-            error: function (e) {
-                $("#getResultDiv2").html("<strong>Error</strong>");
-                console.log("ERROR: ", e);
-            }
+    $.ajax({
+      type : "GET",
+      contentType: "application/json",
+      url : "/api/fuzzy",
+      data : search_query,
+      dataType:"json",
+      success: function(result){
+        $('#getResultDiv2 ul').empty();
+        $.each(result, function(i, hospital){
+          $('#getResultDiv2 .list-group').append("HOSPITAL NAME - "+hospital.HOSPITAL_NAME + " FID KEY- " + hospital.FID + "<br>")
         });
+        console.log("Success: ", result);
+      },
+      error : function(e) {
+        $("#getResultDiv2").html("<strong>Error</strong>");
+        console.log("ERROR: ", e);
+      }
+    });  
+  }
+
+  //FILTER MECHANISM
+  function fuzzyfilterGet(){
+    var search_query = {
+      HOSPITAL_NAME : $("#HOSPITAL_NAME").val(),
+      STATE_NAME : $("#STATE_NAME").val(),
+      COUNTY_NAME : $("#COUNTY_NAME").val(),
+      HQ_CITY : "",
     }
-
-
-    //================DASHBOARD AJAX==============//
-
-    function apiGet(id) {
-        //testing id - 5f1ff6422735334c686b92e3
-        $.ajax({
-            type: "GET",
-            url: "/api/",
-            data: { _id: id },
-            dataType: "json",
-            async: false,
-            success: function (result) {
-                //first empty dashboard========>
-
-
-
-                //these for profile
-                $("#mh-x").val("");
-                $("#mh-y").val("");
-                $("#mh-fid").val("");
-                $("#mh-hname").val("");
-                $("#mh-htype").val("");
-                $("#mh-hq-add").val("");
-                $("#mh-hq-city").val("");
-                $("#mh-hq-state").val("");
-                $("#mh-hq-zip").val("");
-                $("#mh-county").val("");
-                $("#mh-state").val("");
-                $("#mh-fips").val("");
-                //these for manage
-                $("#mh-beds").val("");
-                $("#mh-mh-st-beds").val("");
-                $("#mh-mh-icu-beds").val("");
-                $("#mh-aicu-beds").val("");
-                $("#mh-picu-beds").val("");
-                $("#mh-util").val("");
-                $("#mh-inc").val("");
-                $("#mh-avg-vent").val("");
-                //then append data=========>
-                //profile tab
-                $("#mh-x").val(result.X);
-                $("#mh-y").val(result.Y);
-                $("#mh-fid").val(result.FID);
-                $("#mh-hname").val(result.HOSPITAL_NAME);
-                $("#mh-htype").val(result.HOSPITAL_TYPE);
-                $("#mh-hq-add").val(result.HQ_ADDRESS);
-                $("#mh-hq-city").val(result.HQ_CITY);
-                $("#mh-hq-state").val(result.HQ_STATE);
-                $("#mh-hq-zip").val(result.HQ_ZIP_CODE);
-                $("#mh-county").val(result.COUNTY_NAME);
-                $("#mh-state").val(result.STATE_NAME);
-                $("#mh-fips").val(result.FIPS);
-                //manage tab
-                $("#mh-beds").val(result.NUM_LICENSED_BEDS);
-                $("#mh-st-beds").val(result.NUM_STAFFED_BEDS);
-                $("#mh-icu-beds").val(result.NUM_ICU_BEDS);
-                $("#mh-aicu-beds").val(result.ADULT_ICU_BEDS);
-                $("#mh-picu-beds").val(result.PEDI_ICU_BEDS)
-                $("#mh-util").val(result.BED_UTILIZATION);
-                $("#mh-inc").val(result.Potential_Increase_In_Bed_Capac);
-                $("#mh-avg-vent").val(result.AVG_VENTILATOR_USAGE);
-            },
-            error: function (e) {
-                //user interactive errors
-                console.log("ERROR: ", e);
-                $("#dash-handle").removeClass("completed");
-            }
+    $.ajax({
+      type : "GET",
+      contentType: "application/json",
+      url : "/api/fuzzy",
+      data : search_query,
+      dataType:"json",
+      success: function(result){
+        $('#getResultDiv2 ul').empty();
+        $.each(result, function(i, hospital){
+          $('#getResultDiv2 .list-group').append("HOSPITAL NAME - "+hospital.HOSPITAL_NAME + " FID KEY- " + hospital.FID + "<br>")
         });
-    }
-    function apiUpdate(id) {
-        //testing id - 5f1ff6422735334c686b92e3
-        var req_body = {
-            _id: id,
-            X: $("#mh-x").val(),
-            Y: $("#mh-y").val(),
-            FID: $("#mh-fid").val(),
-            HOSPITAL_NAME: $("#mh-hname").val(),
-            HOSPITAL_TYPE: $("#mh-htype").val(),
-            HQ_ADDRESS: $("#mh-hq-add").val(),
-            HQ_CITY: $("#mh-hq-city").val(),
-            HQ_STATE: $("#mh-hq-state").val(),
-            HQ_ZIP_CODE: $("#mh-hq-zip").val(),
-            COUNTY_NAME: $("#mh-county").val(),
-            STATE_NAME: $("#mh-state").val(),
-            FIPS: $("#mh-fips").val(),
-            //manage tab
-            NUM_LICENSED_BEDS: $("#mh-beds").val(),
-            NUM_STAFFED_BEDS: $("#mh-st-beds").val(),
-            NUM_ICU_BEDS: $("#mh-icu-beds").val(),
-            ADULT_ICU_BEDS: $("#mh-aicu-beds").val(),
-            PEDI_ICU_BEDS: $("#mh-picu-beds").val(),
-            BED_UTILIZATION: $("#mh-util").val(),
-            Potential_Increase_In_Bed_Capac: $("#mh-inc").val(),
-            AVG_VENTILATOR_USAGE: $("#mh-avg-vent").val()
-        }
-        $.ajax({
-            type: "PUT",
-            url: "/api/",
-            data: req_body,
-            dataType: "json",
-            async: false,
-            success: function (result) {
-                //first empty dashboard========>
-                //these for profile
-                $("#mh-x").val("");
-                $("#mh-y").val("");
-                $("#mh-fid").val("");
-                $("#mh-hname").val("");
-                $("#mh-htype").val("");
-                $("#mh-hq-add").val("");
-                $("#mh-hq-city").val("");
-                $("#mh-hq-state").val("");
-                $("#mh-hq-zip").val("");
-                $("#mh-county").val("");
-                $("#mh-state").val("");
-                $("#mh-fips").val("");
-                //these for manage
-                $("#mh-beds").val("");
-                $("#mh-mh-st-beds").val("");
-                $("#mh-mh-icu-beds").val("");
-                $("#mh-aicu-beds").val("");
-                $("#mh-picu-beds").val("");
-                $("#mh-util").val("");
-                $("#mh-inc").val("");
-                $("#mh-avg-vent").val("");
-                //then append data=========>
-                //profile tab
-                $("#mh-x").val(result.X);
-                $("#mh-y").val(result.Y);
-                $("#mh-fid").val(result.FID);
-                $("#mh-hname").val(result.HOSPITAL_NAME);
-                $("#mh-htype").val(result.HOSPITAL_TYPE);
-                $("#mh-hq-add").val(result.HQ_ADDRESS);
-                $("#mh-hq-city").val(result.HQ_CITY);
-                $("#mh-hq-state").val(result.HQ_STATE);
-                $("#mh-hq-zip").val(result.HQ_ZIP_CODE);
-                $("#mh-county").val(result.COUNTY_NAME);
-                $("#mh-state").val(result.STATE_NAME);
-                $("#mh-fips").val(result.FIPS);
-                //manage tab
-                $("#mh-beds").val(result.NUM_LICENSED_BEDS);
-                $("#mh-st-beds").val(result.NUM_STAFFED_BEDS);
-                $("#mh-icu-beds").val(result.NUM_ICU_BEDS);
-                $("#mh-aicu-beds").val(result.ADULT_ICU_BEDS);
-                $("#mh-picu-beds").val(result.PEDI_ICU_BEDS)
-                $("#mh-util").val(result.BED_UTILIZATION);
-                $("#mh-inc").val(result.Potential_Increase_In_Bed_Capac);
-                $("#mh-avg-vent").val(result.AVG_VENTILATOR_USAGE);
-            },
-            error: function (e) {
-                //user interactive errors
-                console.log("ERROR: ", e);
-                console.log("FAILED");
-            }
-        });
-    }
+        console.log("Success: ", result);
+      },
+      error : function(e) {
+        $("#getResultDiv2").html("<strong>Error</strong>");
+        console.log("ERROR: ", e);
+      }
+    });  
+  }
 
-    function dbDataRetriever() {
-        var var_name = firebase.database().ref().child("mongo_hospital");
-        var_name.on("value", function (snapshot) {
-            snapshot.forEach(function (childsnapshot) {
-                if (childsnapshot.val().user_id == firebase.auth().currentUser.uid) {
-                    apiGet(childsnapshot.val().object_id);
-                    OCRStatus(childsnapshot.val().id_verif);
-                    hospitalStatus(childsnapshot.val().object_id); //==THIS IS FOR WARNINNG BEFORE CREATING NEW FORM
-                    // OCRStatus(childsnapshot.val().id_verif);
+
+//================DASHBOARD AJAX==============//
+
+  function apiGet(id){
+      //testing id - 5f1ff6422735334c686b92e3
+    $.ajax({
+      type : "GET",
+      url : "/api/",
+      data : {_id:id},
+      dataType:"json",
+      async:false,
+      success: function(result){
+        //first empty dashboard========>
+
+        
+        
+        //these for profile
+        $("#mh-x").val("");
+        $("#mh-y").val("");
+        $("#mh-fid").val("");
+        $("#mh-hname").val("");
+        $("#mh-htype").val("");
+        $("#mh-hq-add").val("");
+        $("#mh-hq-city").val("");
+        $("#mh-hq-state").val("");
+        $("#mh-hq-zip").val("");
+        $("#mh-county").val("");
+        $("#mh-state").val("");
+        $("#mh-fips").val("");
+        //these for manage
+        $("#mh-beds").val("");
+        $("#mh-mh-st-beds").val("");
+        $("#mh-mh-icu-beds").val("");
+        $("#mh-aicu-beds").val("");
+        $("#mh-picu-beds").val("");
+        $("#mh-util").val("");
+        $("#mh-inc").val("");
+        $("#mh-avg-vent").val("");
+        //then append data=========>
+        //profile tab
+        $("#mh-x").val(result.X);
+        $("#mh-y").val(result.Y);
+        $("#mh-fid").val(result.FID);
+        $("#mh-hname").val(result.HOSPITAL_NAME);
+        $("#mh-htype").val(result.HOSPITAL_TYPE);
+        $("#mh-hq-add").val(result.HQ_ADDRESS);
+        $("#mh-hq-city").val(result.HQ_CITY);
+        $("#mh-hq-state").val(result.HQ_STATE);
+        $("#mh-hq-zip").val(result.HQ_ZIP_CODE);
+        $("#mh-county").val(result.COUNTY_NAME);
+        $("#mh-state").val(result.STATE_NAME);
+        $("#mh-fips").val(result.FIPS);
+        //manage tab
+        $("#mh-beds").val(result.NUM_LICENSED_BEDS);
+        $("#mh-st-beds").val(result.NUM_STAFFED_BEDS);
+        $("#mh-icu-beds").val(result.NUM_ICU_BEDS);
+        $("#mh-aicu-beds").val(result.ADULT_ICU_BEDS);
+        $("#mh-picu-beds").val(result.PEDI_ICU_BEDS)
+        $("#mh-util").val(result.BED_UTILIZATION);
+        $("#mh-inc").val(result.Potential_Increase_In_Bed_Capac);
+        $("#mh-avg-vent").val(result.AVG_VENTILATOR_USAGE);
+      },
+      error : function(e) {
+        //user interactive errors
+        console.log("ERROR: ", e);
+        $("#dash-handle").removeClass("completed");
+      }
+    });   
+  }
+  function apiUpdate(id){
+      //testing id - 5f1ff6422735334c686b92e3
+    var req_body = {
+        _id:id,
+        X : $("#mh-x").val(),
+        Y : $("#mh-y").val(),
+        FID : $("#mh-fid").val(),
+        HOSPITAL_NAME : $("#mh-hname").val(),
+        HOSPITAL_TYPE : $("#mh-htype").val(),
+        HQ_ADDRESS :  $("#mh-hq-add").val(),
+        HQ_CITY:  $("#mh-hq-city").val(),
+        HQ_STATE :  $("#mh-hq-state").val(),
+        HQ_ZIP_CODE :   $("#mh-hq-zip").val(),
+        COUNTY_NAME :  $("#mh-county").val(),
+        STATE_NAME :  $("#mh-state").val(),
+        FIPS :  $("#mh-fips").val(),
+        //manage tab
+        NUM_LICENSED_BEDS :  $("#mh-beds").val(),
+        NUM_STAFFED_BEDS  :  $("#mh-st-beds").val(),
+        NUM_ICU_BEDS  :  $("#mh-icu-beds").val(),
+        ADULT_ICU_BEDS  :  $("#mh-aicu-beds").val(),
+        PEDI_ICU_BEDS : $("#mh-picu-beds").val(),
+        BED_UTILIZATION :  $("#mh-util").val(),
+        Potential_Increase_In_Bed_Capac : $("#mh-inc").val(),
+        AVG_VENTILATOR_USAGE  :  $("#mh-avg-vent").val()
+    }
+    $.ajax({
+      type : "PUT",
+      url : "/api/",
+      data : req_body,
+      dataType:"json",
+      async:false,
+      success: function(result){
+        //first empty dashboard========>
+        //these for profile
+        $("#mh-x").val("");
+        $("#mh-y").val("");
+        $("#mh-fid").val("");
+        $("#mh-hname").val("");
+        $("#mh-htype").val("");
+        $("#mh-hq-add").val("");
+        $("#mh-hq-city").val("");
+        $("#mh-hq-state").val("");
+        $("#mh-hq-zip").val("");
+        $("#mh-county").val("");
+        $("#mh-state").val("");
+        $("#mh-fips").val("");
+        //these for manage
+        $("#mh-beds").val("");
+        $("#mh-mh-st-beds").val("");
+        $("#mh-mh-icu-beds").val("");
+        $("#mh-aicu-beds").val("");
+        $("#mh-picu-beds").val("");
+        $("#mh-util").val("");
+        $("#mh-inc").val("");
+        $("#mh-avg-vent").val("");
+        //then append data=========>
+        //profile tab
+        $("#mh-x").val(result.X);
+        $("#mh-y").val(result.Y);
+        $("#mh-fid").val(result.FID);
+        $("#mh-hname").val(result.HOSPITAL_NAME);
+        $("#mh-htype").val(result.HOSPITAL_TYPE);
+        $("#mh-hq-add").val(result.HQ_ADDRESS);
+        $("#mh-hq-city").val(result.HQ_CITY);
+        $("#mh-hq-state").val(result.HQ_STATE);
+        $("#mh-hq-zip").val(result.HQ_ZIP_CODE);
+        $("#mh-county").val(result.COUNTY_NAME);
+        $("#mh-state").val(result.STATE_NAME);
+        $("#mh-fips").val(result.FIPS);
+        //manage tab
+        $("#mh-beds").val(result.NUM_LICENSED_BEDS);
+        $("#mh-st-beds").val(result.NUM_STAFFED_BEDS);
+        $("#mh-icu-beds").val(result.NUM_ICU_BEDS);
+        $("#mh-aicu-beds").val(result.ADULT_ICU_BEDS);
+        $("#mh-picu-beds").val(result.PEDI_ICU_BEDS)
+        $("#mh-util").val(result.BED_UTILIZATION);
+        $("#mh-inc").val(result.Potential_Increase_In_Bed_Capac);
+        $("#mh-avg-vent").val(result.AVG_VENTILATOR_USAGE);
+      },
+      error : function(e) {
+        //user interactive errors
+        console.log("ERROR: ", e);
+        console.log("FAILED");
+      }
+    });   
+  }
+
+  function dbDataRetriever(){
+    var var_name = firebase.database().ref().child("mongo_hospital");
+  var_name.on("value", function(snapshot) {
+  snapshot.forEach(function(childsnapshot){
+    if(childsnapshot.val().user_id == firebase.auth().currentUser.uid){
+      apiGet(childsnapshot.val().object_id);
+      OCRStatus(childsnapshot.val().id_verif);
+      hospitalStatus(childsnapshot.val().object_id); //==THIS IS FOR WARNINNG BEFORE CREATING NEW FORM
+      // OCRStatus(childsnapshot.val().id_verif);
+    }
+  });
+});
+  }
+  function dbDataUpdater(){
+    var var_name = firebase.database().ref().child("mongo_hospital");
+  var_name.on("value", function(snapshot) {
+  snapshot.forEach(function(childsnapshot){
+    if(childsnapshot.val().user_id == firebase.auth().currentUser.uid){
+      apiUpdate(childsnapshot.val().object_id);
+      OCRStatus(childsnapshot.val().id_verif);
+      hospitalStatus(childsnapshot.val().object_id);
+    }
+    });
+  })
+}
+  function editFix(){
+    console.log("Hello you submitted");
+  }
+
+  //======================DASHBOARD UTILITY================//
+  function createHospital(){
+    if(firebase.auth().currentUser.emailVerified){
+      var req_body = {
+        X : $("#cr-x").val(),
+        Y : $("#cr-y").val(),
+        FID :  Math.trunc(Math.random() * (999999 - 10000) + 10000), //$("#cr-fid").val(),
+        HOSPITAL_NAME : $("#cr-hname").val(),
+        HOSPITAL_TYPE : $("#cr-htype").val(),
+        HQ_ADDRESS :  $("#cr-hq-add").val(),
+        HQ_CITY:  $("#cr-hq-city").val(),
+        HQ_STATE :  $("#cr-hq-state").val(),
+        HQ_ZIP_CODE :   $("#cr-hq-zip").val(),
+        COUNTY_NAME :  $("#cr-county").val(),
+        STATE_NAME :  $("#cr-state").val(),
+        FIPS :  $("#cr-fips").val(),
+        //manage tab
+        NUM_LICENSED_BEDS :  $("#cr-beds").val(),
+        NUM_STAFFED_BEDS  :  $("#cr-st-beds").val(),
+        NUM_ICU_BEDS  :  $("#cr-icu-beds").val(),
+        ADULT_ICU_BEDS  :  $("#cr-aicu-beds").val(),
+        PEDI_ICU_BEDS : $("#cr-picu-beds").val(),
+        BED_UTILIZATION :  $("#cr-util").val(),
+        Potential_Increase_In_Bed_Capac : $("#cr-inc").val(),
+        AVG_VENTILATOR_USAGE  :  $("#cr-avg-vent").val()
+    }
+    $.ajax({
+      type : "POST",
+      url : "/api/",
+      data : req_body,
+      dataType:"json",
+      async:false,
+      success: function(result){
+        //first empty dashboard========>
+        //then append data=========>
+        //profile tab
+        $("#mh-x").val(result.X);
+        $("#mh-y").val(result.Y);
+        $("#mh-fid").val(result.FID);
+        $("#mh-hname").val(result.HOSPITAL_NAME);
+        $("#mh-htype").val(result.HOSPITAL_TYPE);
+        $("#mh-hq-add").val(result.HQ_ADDRESS);
+        $("#mh-hq-city").val(result.HQ_CITY);
+        $("#mh-hq-state").val(result.HQ_STATE);
+        $("#mh-hq-zip").val(result.HQ_ZIP_CODE);
+        $("#mh-county").val(result.COUNTY_NAME);
+        $("#mh-state").val(result.STATE_NAME);
+        $("#mh-fips").val(result.FIPS);
+        //manage tab
+        $("#mh-beds").val(result.NUM_LICENSED_BEDS);
+        $("#mh-st-beds").val(result.NUM_STAFFED_BEDS);
+        $("#mh-icu-beds").val(result.NUM_ICU_BEDS);
+        $("#mh-aicu-beds").val(result.ADULT_ICU_BEDS);
+        $("#mh-picu-beds").val(result.PEDI_ICU_BEDS)
+        $("#mh-util").val(result.BED_UTILIZATION);
+        $("#mh-inc").val(result.Potential_Increase_In_Bed_Capac);
+        $("#mh-avg-vent").val(result.AVG_VENTILATOR_USAGE);
+        console.log(result._id);
+        attacher(result._id);
+        $("#test-page").attr('style','display:none;');
+
+      },
+      error : function(e) {
+        //user interactive errors
+        console.log("ERROR: ", e);
+        console.log("FAILED");
+      }
+    });
+    }
+      //testing id - 5f1ff6422735334c686b92e3
+  }
+  function attacher(id){
+    var var_name = firebase.database().ref().child("mongo_hospital");
+    var_name.on("value", function(snapshot) {
+    snapshot.forEach(function(childsnapshot){
+      if(childsnapshot.val().user_id == firebase.auth().currentUser.uid){
+        //here attach the id of the matched snapshot the mongo id
+        function hospital_attacher(h){
+                  firebase.database().ref('mongo_hospital/' + h.user_id).set(h);
                 }
-            });
-        });
-    }
-    function dbDataUpdater() {
-        var var_name = firebase.database().ref().child("mongo_hospital");
-        var_name.on("value", function (snapshot) {
-            snapshot.forEach(function (childsnapshot) {
-                if (childsnapshot.val().user_id == firebase.auth().currentUser.uid) {
-                    apiUpdate(childsnapshot.val().object_id);
-                    OCRStatus(childsnapshot.val().id_verif);
-                    hospitalStatus(childsnapshot.val().object_id);
-                }
-            });
-        })
-    }
-    function editFix() {
-        console.log("Hello you submitted");
-    }
 
-    //======================DASHBOARD UTILITY================//
-    function createHospital() {
-        if (firebase.auth().currentUser.emailVerified) {
-            var req_body = {
-                X: $("#cr-x").val(),
-                Y: $("#cr-y").val(),
-                FID: Math.trunc(Math.random() * (999999 - 10000) + 10000), //$("#cr-fid").val(),
-                HOSPITAL_NAME: $("#cr-hname").val(),
-                HOSPITAL_TYPE: $("#cr-htype").val(),
-                HQ_ADDRESS: $("#cr-hq-add").val(),
-                HQ_CITY: $("#cr-hq-city").val(),
-                HQ_STATE: $("#cr-hq-state").val(),
-                HQ_ZIP_CODE: $("#cr-hq-zip").val(),
-                COUNTY_NAME: $("#cr-county").val(),
-                STATE_NAME: $("#cr-state").val(),
-                FIPS: $("#cr-fips").val(),
-                //manage tab
-                NUM_LICENSED_BEDS: $("#cr-beds").val(),
-                NUM_STAFFED_BEDS: $("#cr-st-beds").val(),
-                NUM_ICU_BEDS: $("#cr-icu-beds").val(),
-                ADULT_ICU_BEDS: $("#cr-aicu-beds").val(),
-                PEDI_ICU_BEDS: $("#cr-picu-beds").val(),
-                BED_UTILIZATION: $("#cr-util").val(),
-                Potential_Increase_In_Bed_Capac: $("#cr-inc").val(),
-                AVG_VENTILATOR_USAGE: $("#cr-avg-vent").val()
-            }
-            $.ajax({
-                type: "POST",
-                url: "/api/",
-                data: req_body,
-                dataType: "json",
-                async: false,
-                success: function (result) {
-                    //first empty dashboard========>
-                    //then append data=========>
-                    //profile tab
-                    $("#mh-x").val(result.X);
-                    $("#mh-y").val(result.Y);
-                    $("#mh-fid").val(result.FID);
-                    $("#mh-hname").val(result.HOSPITAL_NAME);
-                    $("#mh-htype").val(result.HOSPITAL_TYPE);
-                    $("#mh-hq-add").val(result.HQ_ADDRESS);
-                    $("#mh-hq-city").val(result.HQ_CITY);
-                    $("#mh-hq-state").val(result.HQ_STATE);
-                    $("#mh-hq-zip").val(result.HQ_ZIP_CODE);
-                    $("#mh-county").val(result.COUNTY_NAME);
-                    $("#mh-state").val(result.STATE_NAME);
-                    $("#mh-fips").val(result.FIPS);
-                    //manage tab
-                    $("#mh-beds").val(result.NUM_LICENSED_BEDS);
-                    $("#mh-st-beds").val(result.NUM_STAFFED_BEDS);
-                    $("#mh-icu-beds").val(result.NUM_ICU_BEDS);
-                    $("#mh-aicu-beds").val(result.ADULT_ICU_BEDS);
-                    $("#mh-picu-beds").val(result.PEDI_ICU_BEDS)
-                    $("#mh-util").val(result.BED_UTILIZATION);
-                    $("#mh-inc").val(result.Potential_Increase_In_Bed_Capac);
-                    $("#mh-avg-vent").val(result.AVG_VENTILATOR_USAGE);
-                    console.log(result._id);
-                    attacher(result._id);
-                    $("#test-page").attr('style', 'display:none;');
+                var email_verif_set = {
+                  user_id: firebase.auth().currentUser.uid,
+                  id_verif: 1,
+                  email: firebase.auth().currentUser.email,
+                  object_id: id,
+                  email_verif: firebase.auth().currentUser.emailVerified ? 1 : 0,
+                  time: new Date().toLocaleString()
+                               
+              };
 
-                },
-                error: function (e) {
-                    //user interactive errors
-                    console.log("ERROR: ", e);
-                    console.log("FAILED");
-                }
-            });
-        }
-        //testing id - 5f1ff6422735334c686b92e3
-    }
-    function attacher(id) {
-        var var_name = firebase.database().ref().child("mongo_hospital");
-        var_name.on("value", function (snapshot) {
-            snapshot.forEach(function (childsnapshot) {
-                if (childsnapshot.val().user_id == firebase.auth().currentUser.uid) {
-                    //here attach the id of the matched snapshot the mongo id
-                    function hospital_attacher(h) {
-                        firebase.database().ref('mongo_hospital/' + h.user_id).set(h);
-                    }
+              hospital_attacher(email_verif_set);
+      }
+    });
+  })
+  }
+//===========OCR FACILITY============//
+//Checks for status of OCR from snapshot only
+function OCRStatus(stat){
+  if(stat){
+    $("#dash-id").addClass("completed");
+    $("#res").text("SUCCESS(FROM DB)")
+  } else {
+    $("#dash-id").removeClass("completed");
+    $("#res").text("PENDING")
+  }
+}
+//===================================
 
-                    var email_verif_set = {
-                        user_id: firebase.auth().currentUser.uid,
-                        id_verif: 1,
-                        email: firebase.auth().currentUser.email,
-                        object_id: id,
-                        email_verif: firebase.auth().currentUser.emailVerified ? 1 : 0,
-                        time: new Date().toLocaleString()
-
-                    };
-
-                    hospital_attacher(email_verif_set);
-                }
-            });
-        })
-    }
-    //===========OCR FACILITY============//
-    //Checks for status of OCR from snapshot only
-    function OCRStatus(stat) {
-        if (stat) {
-            $("#dash-id").addClass("completed");
-            $("#res").text("SUCCESS(FROM DB)")
-        } else {
-            $("#dash-id").removeClass("completed");
-            $("#res").text("PENDING")
-        }
-    }
-    //===================================
-
-    //================FOR MANAGE ==============//
-    $(document).ready(function () {
-        $('#ProfileSubmitBtnGrp').hide();
-        $('#ManageSubmitBtnGrp').hide();
-
-        $('#EditManagePageBtn').click(function () {
-            $('input').attr('readonly', false);
-            $('#EditManagePageBtn').hide();
-            $('#ManageSubmitBtnGrp').show();
-        });
-        $('#submitmanagebtn').click(function () {
-            $('input').attr('readonly', true);
-            dbDataUpdater();
-            $('#EditManagePageBtn').show();
-            $('#ManageSubmitBtnGrp').hide();
-        })
-        $('#cancelmanagebtn').click(function () {
-            $('input').attr('readonly', true);
-            dbDataRetriever();
-            $('#EditManagePageBtn').show();
-            $('#ManageSubmitBtnGrp').hide();
-        })
-        $('#EditProfilePageBtn').click(function () {
-            $('input').attr('readonly', false);
-            $('#EditProfilePageBtn').hide();
-            $('#ProfileSubmitBtnGrp').show();
-        });
-        $('#submitprofilebtn').click(function () {
-            $('input').attr('readonly', true);
-            dbDataUpdater();
-            $('#EditProfilePageBtn').show();
-            $('#ProfileSubmitBtnGrp').hide();
-        })
-        $('#cancelprofilebtn').click(function () {
-            $('input').attr('readonly', true);
-            dbDataRetriever();
-            $('#EditProfilePageBtn').show();
-            $('#ProfileSubmitBtnGrp').hide();
-        })
+  //================FOR MANAGE ==============//
+  $(document).ready(function(){
+    $('#ProfileSubmitBtnGrp').hide();
+    $('#ManageSubmitBtnGrp').hide();
+    
+    $('#EditManagePageBtn').click(function(){
+      $('input').attr('readonly',false);
+      $('#EditManagePageBtn').hide();
+      $('#ManageSubmitBtnGrp').show();
+  });
+    $('#submitmanagebtn').click(function(){
+      $('input').attr('readonly',true);
+      dbDataUpdater();
+      $('#EditManagePageBtn').show();
+      $('#ManageSubmitBtnGrp').hide();
     })
-
-    //=======================
-    //TEST PAGE REDIRECTING BUT BEFORE CHECKING ITS A VERIFIED EMAIL OR NOT
-    $('#dash-handle')
-        .popup({
-            inline: true,
-            on: 'hover',
-        });
-
-
-    //===============THIS SET RUNS AFTER AUTH STATE CHANGE ONLY ===============//
-    function testRedirect() {
-        if (firebase.auth().currentUser.emailVerified && document.getElementById('dash-id') == document.getElementsByClassName('step completed')[1] ? 1 : 0) {
-            $("#test-page").attr('style', 'display:block;');
-        }
-        else if (firebase.auth().currentUser.emailVerified && document.getElementById('dash-id') != document.getElementsByClassName('step completed')[1]) {
-            alert("Verify your ID before you start handling the hospital");
-        } else if (firebase.auth().currentUser.emailVerified ? 0 : 1) {
-            alert("Verify your Email in settings first");
-        }
-
-        //=========THis SHOWS WARNING MESSAGE IN CASE YOU HAVE A HOSPITAL ASSIGNED ALREADY
-
-    }
-    function hospitalStatus(stat) {
-        if (stat == "undefined") {
-            $('#dash-handle').removeClass("completed");
-        } else {
-            $("#dash-handle").addClass("completed");
-            $("#dash-handle").click(function () {
-                $("#danger-message").attr('style', "'display':'block'");
-            })
-        }
-    }
-    $("#close-creation").click(function () {
-        $("#danger-message").attr('style', "display:none");
-        $("#test-page").attr('style', 'display:none;');
+    $('#cancelmanagebtn').click(function(){
+      $('input').attr('readonly',true);
+      dbDataRetriever();
+      $('#EditManagePageBtn').show();
+      $('#ManageSubmitBtnGrp').hide();
     })
-    //========================
+    $('#EditProfilePageBtn').click(function(){
+      $('input').attr('readonly',false);
+      $('#EditProfilePageBtn').hide();
+      $('#ProfileSubmitBtnGrp').show();
+  });
+    $('#submitprofilebtn').click(function(){
+      $('input').attr('readonly',true);
+      dbDataUpdater();
+      $('#EditProfilePageBtn').show();
+      $('#ProfileSubmitBtnGrp').hide();
+    })
+    $('#cancelprofilebtn').click(function(){
+      $('input').attr('readonly',true);
+      dbDataRetriever();
+      $('#EditProfilePageBtn').show();
+      $('#ProfileSubmitBtnGrp').hide();
+    })
+  })
+
+//=======================
+//TEST PAGE REDIRECTING BUT BEFORE CHECKING ITS A VERIFIED EMAIL OR NOT
+$('#dash-handle')
+  .popup({
+    inline     : true,
+    on: 'hover',
+  });
+
+
+//===============THIS SET RUNS AFTER AUTH STATE CHANGE ONLY ===============//
+function  testRedirect(){
+    if(firebase.auth().currentUser.emailVerified && document.getElementById('dash-id') == document.getElementsByClassName('step completed')[1] ? 1 : 0){
+      $("#test-page").attr('style','display:block;');
+    }
+    else if(firebase.auth().currentUser.emailVerified && document.getElementById('dash-id') != document.getElementsByClassName('step completed')[1]){
+        alert("Verify your ID before you start handling the hospital");
+    }else if(firebase.auth().currentUser.emailVerified ? 0 : 1){
+        alert("Verify your Email in settings first");
+    }
+
+    //=========THis SHOWS WARNING MESSAGE IN CASE YOU HAVE A HOSPITAL ASSIGNED ALREADY
+
+}
+function hospitalStatus(stat){
+  if(stat == "undefined"){
+    $('#dash-handle').removeClass("completed");
+  } else {
+    $("#dash-handle").addClass("completed");
+    $("#dash-handle").click(function(){
+      $("#danger-message").attr('style', "'display':'block'");
+    })
+  }
+}
+$("#close-creation").click(function(){
+  $("#danger-message").attr('style', "display:none");
+  $("#test-page").attr('style','display:none;');
+})
+//========================
     //Search Display Logic
-    function searchDisplay() {
-        if ($("#choice-segment-2").css("display") == "block") {
-            $('#choice-segment-2').transition("scale", "1000ms");
-            $('#choice-segment-1').transition("scale", "1000ms");
-        } else {
-            $('#choice-segment-1').transition("scale");
-        }
+    function searchDisplay(){
+      if ($("#choice-segment-2").css("display") == "block"){
+        $('#choice-segment-2').transition("scale","1000ms");
+        $('#choice-segment-1').transition("scale","1000ms");
+      } else {
+        $('#choice-segment-1').transition("scale");
+      }
     }
-
-    function addDisplay() {
-        if ($("#choice-segment-1").css("display") == "block") {
-            $('#choice-segment-1').transition("scale", "1000ms");
-            $('#choice-segment-2').transition("scale", "1000ms");
-        } else {
-            $('#choice-segment-2').transition("scale");
-        }
+  
+    function addDisplay(){
+      if ($("#choice-segment-1").css("display") == "block"){
+        $('#choice-segment-1').transition("scale","1000ms");
+        $('#choice-segment-2').transition("scale","1000ms");
+      } else {
+        $('#choice-segment-2').transition("scale");
+      }
     }
     $('i').popup();
 

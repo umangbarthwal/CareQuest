@@ -1,67 +1,67 @@
 <div class="main-item" id="Manage-Hospital" style="display:none;">
-    <div class="ui segment">
-        <h2 class="ui header"><button id="EditManagePageBtn" class="ui mini positive right floated button">EDIT</button>
-            <i class="red colored hospital icon"></i>
-            <div class="content">
-                RESOURCE MANAGEMENT
-                <div class="sub header">Manage your Resources</div>
-            </div>
-        </h2>
-        <hr>
-    </div>
+  <div class="ui segment">
+    <h2 class="ui header"><button id="EditManagePageBtn" class="ui mini positive right floated button">EDIT</button>
+      <i class="red colored hospital icon"></i>
+      <div class="content">    
+RESOURCE MANAGEMENT
+        <div class="sub header">Manage your Resources</div>
+      </div>
+    </h2>
+      <hr>
+      </div>
     <form class="ui form">
-        <div class="ui subheader" style="color:green;">
-            This information will help us in resource allocation
+      <div class="ui subheader" style="color:green;">
+        This information will help us in resource allocation
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>Licensed Beds</label>
+          <input type="number" id="mh-beds" readonly>
         </div>
-        <div class="two fields">
-            <div class="field">
-                <label>Licensed Beds</label>
-                <input type="number" id="mh-beds" readonly>
-            </div>
-            <div class="field">
-                <label>Staffed Beds</label>
-                <input type="number" id="mh-st-beds" readonly>
-            </div>
+        <div class="field">
+          <label>Staffed Beds</label>
+          <input type="number" id="mh-st-beds" readonly>
         </div>
-        <div class="three fields">
-            <div class="field">
-                <label>ICU Beds</label>
-                <input type="number" id="mh-icu-beds" readonly>
-            </div>
-            <div class="field">
-                <label>Adult ICU Beds</label>
-                <input type="number" id="mh-aicu-beds" readonly>
-            </div>
-            <div class="field">
-                <label>Pediatric ICU Beds</label>
-                <input id="mh-picu-beds" readonly>
-            </div>
+      </div>
+      <div class="three fields">
+        <div class="field">
+          <label>ICU Beds</label>
+          <input type="number" id="mh-icu-beds" readonly>
         </div>
-        <div class="two fields">
-            <div class="field">
-                <label>Bed Utilization</label>
-                <input type="number" id="mh-util" readonly>
-            </div>
-            <div class="field">
-                <label>Expected Bed Capacity Increase</label>
-                <input type="number" id="mh-inc" readonly>
-            </div>
+        <div class="field">
+          <label>Adult ICU Beds</label>
+          <input type="number" id="mh-aicu-beds" readonly>
         </div>
-        <div class="inline fields">
-            <label>Average Ventilator utilization</label>
-            <div class="fourteen wide field">
-                <input type="number" id="mh-avg-vent" readonly>
-            </div>
+        <div class="field">
+          <label>Pediatric ICU Beds</label>
+          <input id="mh-picu-beds" readonly>
         </div>
-        <div class="ui buttons" id="ManageSubmitBtnGrp">
-            <div class="ui animated blue button" type="submit" id="submitmanagebtn">
-                <div class="visible content">Save Changes</div>
-                <div class="hidden content"><i class="paper plane icon"></i></div>
-            </div>
-            <div class="ui animated red button" type="submit" id="cancelmanagebtn">
-                <div class="visible content">Cancel</div>
-                <div class="hidden content"><i class="trash icon"></i></div>
-            </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>Bed Utilization</label>
+          <input type="number" id="mh-util" readonly>
         </div>
+        <div class="field">
+          <label>Expected Bed Capacity Increase</label>
+          <input type="number" id="mh-inc" readonly>
+        </div>
+      </div>
+      <div class="inline fields">
+        <label>Average Ventilator utilization</label>
+        <div class="fourteen wide field">
+          <input type="number" id="mh-avg-vent" readonly>
+        </div>
+      </div>
+      <div class="ui buttons" id="ManageSubmitBtnGrp">
+        <div class="ui animated blue button" type="submit" id="submitmanagebtn">
+          <div class="visible content">Save Changes</div>
+          <div class="hidden content"><i class="paper plane icon"></i></div>
+        </div>
+        <div class="ui animated red button" type="submit" id="cancelmanagebtn">
+          <div class="visible content">Cancel</div>
+          <div class="hidden content"><i class="trash icon"></i></div>
+        </div>
+      </div>
     </form>
-</div>
+  </div>

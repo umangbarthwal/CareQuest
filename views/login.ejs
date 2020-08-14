@@ -1,67 +1,71 @@
 <%- include("./partials/header") %>
 
-      <link id="login-style" rel = "stylesheet" href="loginstyle.css">
-      <div id="login_div" class = "login-page">
+<link id="login-style" rel="stylesheet" href="loginstyle.css">
+<div id="login_div" class="login-page">
 
-			<div class = "form">
-				<div class = "registration-form">   
-					<h1> REGISTER</h1>
-					<div class="inputWithIcon">
-            <input type="text" placeholder="Email" id="email_field1"/> 
-           <i class="fa fa-user fa-lg fa-fu" aria-hidden="true"></i>
-         </div>
-					
-				
-         <div class="inputWithIcon">
-          <input type="password" class="active" placeholder="Password" minlength="8" id="password_field1" required/>
-         <i class="fa fa-key fa-lg fa-fu" aria-hidden="true"></i>
-       </div>
-				
-       <div class="inputWithIcon">
-        <input type="password" class="active" placeholder="Retype Password" minlength="8" id="password_field3" required/>
-       <i class="fa fa-key fa-lg fa-fu" aria-hidden="true"></i>
-       </div>
-				
-					<button class="button" title="Sign Up" onclick="create_account(); ">Create</button>
-					<p class="message" id="login-interface">Already Registered? <a href="#"> Login </a></p>
+  <div class="form">
+    <div class="registration-form">
+      <h1> REGISTER</h1>
+      <div class="inputWithIcon">
+        <input type="text" placeholder="Email" id="email_field1" />
+        <i class="fa fa-user fa-lg fa-fu" aria-hidden="true"></i>
       </div>
 
-				<div class="login-form">
-          <h1> LOGIN</h1>
-					<div class="inputWithIcon">
-            <input type="text" placeholder="Email" id="email_field2"/> 
-           <i class="fa fa-envelope fa-lg fa-fu" aria-hidden="true"></i>
-         </div>
-				
-				
-           <div class="inputWithIcon">
-            <input type="password" class="active" placeholder="Password" minlength="8" id="password_field2" required/> 
-           <i id="icon" class="fa fa-lock fa-lg fa-fu" aria-hidden="true"></i>
-           
-         </div>
-				
-					<button id="login" class="button" onclick="login()" title="Login">Login</button>
-					<p id="forgot-password"><a href="#">Forgot Password</a></p>
-					<p class="message" id="register-interface">Not Registered? <a href="#"> Register </a></p>
-				</div>
 
-				
-				<div class="forgot-interface">   
-          <div class="inputWithIcon">
-            <input type="text" placeholder="Email" id="email_field3"/> 
-           <i class="fa fa-envelope fa-lg fa-fu" aria-hidden="true"></i>
-         </div>
-          <button class="button" title="Reset Password" onclick="forgot_password()">Forgot Password</button>
-          
-					<p class="message"> <a href="#">  </a></p>
-				</div>
-			</div>
-      
-	   </div>
-	   
+      <div class="inputWithIcon">
+        <input type="password" class="active" placeholder="Password" minlength="8" id="password_field1" required />
+        <i class="fa fa-key fa-lg fa-fu" aria-hidden="true"></i>
+      </div>
 
-	   <!--logout & user div-->
-     <div   id="user_div" class="loggedin-div card" >
+      <div class="inputWithIcon">
+        <input type="password" class="active" placeholder="Retype Password" minlength="8" id="password_field3"
+          required />
+        <i class="fa fa-key fa-lg fa-fu" aria-hidden="true"></i>
+      </div>
+
+      <button class="button" title="Sign Up" onclick="create_account(); ">Create</button>
+      <p class="message" id="login-interface">Already Registered? <a href="#"> Login </a></p>
+    </div>
+
+    <div class="login-form">
+      <h1> LOGIN</h1>
+      <div class="inputWithIcon">
+        <input type="text" placeholder="Email" id="email_field2" />
+        <i class="fa fa-envelope fa-lg fa-fu" aria-hidden="true"></i>
+      </div>
+
+
+      <div class="inputWithIcon">
+        <input type="password" class="active" placeholder="Password" minlength="8" id="password_field2" required />
+        <i id="icon" class="fa fa-lock fa-lg fa-fu" aria-hidden="true"></i>
+
+      </div>
+
+      <button id="login" class="button" onclick="login()" title="Login">Login</button>
+      <p id="forgot-password"><a href="#">Forgot Password</a></p>
+      <p class="message" id="register-interface" style="margin-top: 0px;">Not Registered? <a href="#"> Register </a></p>
+      <hr>
+      <h4 style="background: rgba(0,0,0,0.6);padding:12px;color:white;margin:0px auto;">Admin Login <a
+          href="/login2">here</a></h4>
+    </div>
+
+
+    <div class="forgot-interface">
+      <div class="inputWithIcon">
+        <input type="text" placeholder="Email" id="email_field3" />
+        <i class="fa fa-envelope fa-lg fa-fu" aria-hidden="true"></i>
+      </div>
+      <button class="button" title="Reset Password" onclick="forgot_password()">Forgot Password</button>
+
+      <p class="message"> <a href="#"> </a></p>
+    </div>
+  </div>
+
+</div>
+
+
+<!--logout & user div-->
+<div id="user_div" class="loggedin-div card">
   <!-- <h3>Welcome!</h3>
     <p id="user_para">You're logged in.</p>
     <button type="button" class="btn btn-primary" type="button" data-toggle="tooltip" data-placement="right" title="Logout"  onclick="logout()">Logout</button>
@@ -72,533 +76,538 @@
     <br>
     <button type="button" class="btn btn-primary" type="button" data-toggle="tooltip" data-placement="right" title="Delete Account"  onclick="deleteacc()">Delete Account</button>
     -->
-<div class=" ui centered container" style="margin-top: 2vh;">
-  <div class="ui relaxed stackable grid">
-    <!--header menu end-->
-    <!--sidebar start-->
-    <div class=" three wide column sidebar">
-        <div class="sidebar-menu" >
-            <div class="sidebar-item ">
-              <div class="ui small message">
-                <button class="black colored ui fluid button" onclick="displayMainPage('dashboard-page')">
-                    <i class="grey colored desktop icon "></i><span> Dashboard</span>
-                </button>
+  <div class=" ui centered container" style="margin-top: 2vh;">
+    <div class="ui relaxed stackable grid">
+      <!--header menu end-->
+      <!--sidebar start-->
+      <div class=" three wide column sidebar">
+        <div class="sidebar-menu">
+          <div class="sidebar-item ">
+            <div class="ui small message">
+              <button class="black colored ui fluid button" onclick="displayMainPage('dashboard-page')">
+                <i class="grey colored desktop icon "></i><span> Dashboard</span>
+              </button>
             </div>
+          </div>
+          <hr>
+          <div class="sidebar-item">
+            <div class="ui small message">
+              <button class="black colored ui fluid button" onclick="displayMainPage('profile-page')">
+                <i class="grey colored user circle icon"></i><span> Profile </span>
+              </button>
             </div>
-            <hr>
-            <div class="sidebar-item">
-              <div class="ui small message">
-                <button class="black colored ui fluid button" onclick="displayMainPage('profile-page')">
-                    <i class="grey colored user circle icon"></i><span> Profile </span>
-                </button>
+          </div>
+          <hr>
+          <div class="sidebar-item">
+            <div class="ui small message">
+              <button class="black colored ui fluid button" onclick="displayMainPage('Manage-Hospital')">
+                <i class="grey colored hospital outline icon"></i><span> Manage</span>
+              </button>
             </div>
+          </div>
+          <hr>
+          <div class="sidebar-item">
+            <div class="ui small message">
+              <button id="chatpage" class="black colored ui fluid button" onclick="displayMainPage('chat')">
+                <i class="grey colored envelope outline icon"></i><span> Chat</span>
+              </button>
             </div>
-            <hr>
-            <div class="sidebar-item">
-              <div class="ui small message">
-                <button class="black colored ui fluid button" onclick="displayMainPage('Manage-Hospital')">
-                    <i class="grey colored hospital outline icon"></i><span> Manage</span>
-                </button>
+          </div>
+          <hr>
+          <div class="sidebar-item">
+            <div class="ui small message">
+              <button class="black colored ui fluid large button" onclick="displayMainPage('settings-page')">
+                <i class="grey colored settings icon"></i><span> Settings</span>
+              </button>
             </div>
+          </div>
+          <hr>
+          <div class="sidebar-item">
+            <div class="ui small message">
+              <button id="logout" class="black colored ui fluid button"
+                onclick="logout(); remove_online(firebase.auth().currentUser);">
+                <i class="grey colored share square outline icon"></i></i><span> Logout</span>
+              </button>
             </div>
-            <hr>
-            <div class="sidebar-item">
-              <div class="ui small message">
-                <button id="chatpage" class="black colored ui fluid button" onclick="displayMainPage('chat')">
-                    <i class="grey colored envelope outline icon"></i><span> Chat</span>
-                </button>
-            </div>
-            </div>
-            <hr>
-            <div class="sidebar-item">
-              <div class="ui small message">
-                <button class="black colored ui fluid large button" onclick="displayMainPage('settings-page')">
-                    <i class="grey colored settings icon"></i><span> Settings</span>
-                </button>
-            </div>
-            </div>
-            <hr>
-            <div class="sidebar-item">
-              <div class="ui small message">
-                <button id="logout" class="black colored ui fluid button" onclick="logout(); remove_online(firebase.auth().currentUser);">
-                  <i class="grey colored share square outline icon"></i></i><span> Logout</span>
-                </button>
-            </div>
-            </div>
+          </div>
         </div>
+      </div>
+
+      <div class="twelve wide column page-area">
+
+        <!-- //===============DASHBOARD RENDERING TEMPLATE==============// -->
+        <%- include("./login-assets/dashboard") %>
+        <!-- //=============END OF DASHBOARD TEMPLATE==============// -->
+
+        <!-- //===============PROFILE HOSPITAL RENDERING TEMPLATE==============// -->
+        <%- include("./login-assets/profile") %>
+        <!-- //=============END OF PROFILE HOSPITAL TEMPLATE==============// -->
+
+        <!-- //========= MANAGE HOSPITAL RENDERING TEMPLATE==============// -->
+        <%- include("./login-assets/manage") %>
+        <!-- //=============END OF MANAGE HOSPITAL TEMPLATE==============// -->
+
+        <!-- //========= CHAT RENDERING TEMPLATE==============// -->
+        <%- include("./login-assets/chat") %>
+        <!-- //=============END OF CHAT TEMPLATE==============// -->
+
+        <!-- //========= SETTINGS RENDERING TEMPLATE==============// -->
+        <%- include("./login-assets/settings") %>
+        <!-- //=============END OF SETTINGS TEMPLATE==============// -->
+
+
+
+      </div>
     </div>
-    
-    <div class="twelve wide column page-area" >
-     
-       <!-- //===============DASHBOARD RENDERING TEMPLATE==============// -->
-       <%- include("./login-assets/dashboard") %>
-       <!-- //=============END OF DASHBOARD TEMPLATE==============// -->
-      
-      <!-- //===============PROFILE HOSPITAL RENDERING TEMPLATE==============// -->
-      <%- include("./login-assets/profile") %>
-      <!-- //=============END OF PROFILE HOSPITAL TEMPLATE==============// -->
-
-      <!-- //========= MANAGE HOSPITAL RENDERING TEMPLATE==============// -->
-      <%- include("./login-assets/manage") %>
-      <!-- //=============END OF MANAGE HOSPITAL TEMPLATE==============// -->
-
-       <!-- //========= CHAT RENDERING TEMPLATE==============// -->
-       <%- include("./login-assets/chat") %>
-       <!-- //=============END OF CHAT TEMPLATE==============// -->
-
-         <!-- //========= SETTINGS RENDERING TEMPLATE==============// -->
-         <%- include("./login-assets/settings") %>
-         <!-- //=============END OF SETTINGS TEMPLATE==============// -->
-      
-
-      
-    </div> 
   </div>
-</div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.7/semantic.min.js"></script>
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
-<script src="https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js"></script>
-<!-- TODO: Add SDKs for Firebase products that you want to use
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.7/semantic.min.js"></script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+  <script src="https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js"></script>
+  <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-	 <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyChax-RIyl8an4nKJA0XLdIc8CyU3jeGgY",
-    authDomain: "here-maps-bitsians.firebaseapp.com",
-    databaseURL: "https://here-maps-bitsians.firebaseio.com",
-    projectId: "here-maps-bitsians",
-    storageBucket: "here-maps-bitsians.appspot.com",
-    messagingSenderId: "517005193635",
-    appId: "1:517005193635:web:846d53aebc789427b0ea16"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyChax-RIyl8an4nKJA0XLdIc8CyU3jeGgY",
+      authDomain: "here-maps-bitsians.firebaseapp.com",
+      databaseURL: "https://here-maps-bitsians.firebaseio.com",
+      projectId: "here-maps-bitsians",
+      storageBucket: "here-maps-bitsians.appspot.com",
+      messagingSenderId: "517005193635",
+      appId: "1:517005193635:web:846d53aebc789427b0ea16"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
 
-  // Get a reference to the database service
-  var database = firebase.database();
+    // Get a reference to the database service
+    var database = firebase.database();
 
-</script>
-<!-- //=============AJAX HELPER SCRIPTS=============// -->
-<%- include("./login-assets/ajax-scripts") %>
-<!-- //=================CONTACT SMK BEFORE MOVING THIS=============// -->
-	<script>
+  </script>
+  <!-- //=============AJAX HELPER SCRIPTS=============// -->
+  <%- include("./login-assets/ajax-scripts") %>
+  <!-- //=================CONTACT SMK BEFORE MOVING THIS=============// -->
+  <script>
     var inputPass2 = document.getElementById('password_field2'),
-    icon = document.getElementById('icon');
- 
-   icon.onclick = function () {
- 
-     if(inputPass2.className == 'active') {
+      icon = document.getElementById('icon');
+
+    icon.onclick = function () {
+
+      if (inputPass2.className == 'active') {
         inputPass2.setAttribute('type', 'password');
         icon.className = 'fa fa-lock fa-lg fa-fu';
-       inputPass2.className = 'inactive';
- 
-     } else {
+        inputPass2.className = 'inactive';
+
+      } else {
         inputPass2.setAttribute('type', 'text');
         icon.className = 'fa fa-unlock fa-lg fa-fu';
-       inputPass2.className = 'active';
+        inputPass2.className = 'active';
+      }
     }
-   }
 
-function toggle_status(){
-  
-  var onlineIcon = document.getElementById("statusie"),
-      toggle = document.getElementById("toggle"),
-      stat = document.getElementById("stat");
-        
-        if(onlineIcon.className == "fa fa-toggle-on"){
-          onlineIcon.className = "fa fa-toggle-off";
-          stat.innerHTML = "Status : Offline";
-        }else{
-          onlineIcon.className = "fa fa-toggle-on";
-          stat.innerHTML = "Status : Online";
-        }
-        
-        }
-     
+    function toggle_status() {
+
+      var onlineIcon = document.getElementById("statusie"),
+        toggle = document.getElementById("toggle"),
+        stat = document.getElementById("stat");
+
+      if (onlineIcon.className == "fa fa-toggle-on") {
+        onlineIcon.className = "fa fa-toggle-off";
+        stat.innerHTML = "Status : Offline";
+      } else {
+        onlineIcon.className = "fa fa-toggle-on";
+        stat.innerHTML = "Status : Online";
+      }
+
+    }
+
     var currentUser;
-  
-		function writeUserData(user) {
-    firebase.database().ref('users/' + user.uid).set({
-      email: user.email
-    });
-  }
-    
-  firebase.auth().onAuthStateChanged(function(user) {
-    const loginStylesheet = document.getElementById('login-style');
-    if (user) {
-      $("input").val("");
-      if(firebase.auth().currentUser.emailVerified){
-        $("#dash-email").addClass("completed");
-      } else {
-        $("#dash-email").removeClass("completed");
-      }
 
-      // User is signed in.
-      dbDataRetriever();//This function brings data from mongo
-     
-      if(firebase.auth().currentUser){
-        loginStylesheet.href = 'dashboard.css';
-      } else {
-        loginStylesheet.href = 'loginstyle.css'
-      }
-  
-      document.getElementById("user_div").style.display = "block";
-      document.getElementById("login_div").style.display = "none";
-
-          
-      var currentUser = user;
-      
-
-  
-      if(user != null){
-
-        var email_id = user.email;
-        var email_verfied = user.emailVerified;
-  
-        if(email_verfied){
-          //document.getElementById("verify_btn").style.display = "none";
-          document.getElementById("togl").style.display = "none";
-        }else{
-          //document.getElementById("verify_btn").style.display = "block";
-          document.getElementById("togl").style.display = "block";
-        }
-        //document.getElementById("user_para").innerHTML = "User : " + email_id + "<br> Verfied : " + email_verfied;
-  
-  
-      }
-  
-    } else {
-      // No user is signed in.
-              //login fuck up fix
-      if(firebase.auth().currentUser){
-        loginStylesheet.href = 'dashboard.css';
-      } else {
-        loginStylesheet.href = 'loginstyle.css'
-      }
-      document.getElementById("user_div").style.display = "none";
-      document.getElementById("login_div").style.display = "block";
+    function writeUserData(user) {
+      firebase.database().ref('users/' + user.uid).set({
+        email: user.email
+      });
     }
-  });
-  
-  
-  
-  
-  
-  function login(){
-  
-    var userEmail = document.getElementById("email_field2").value;
-    var userPass = document.getElementById("password_field2").value;
-  
-    firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-  
-      window.alert("Error : " + errorMessage);
-  
-      // ...
-    });
 
-
-  
-  }
-  
-  
-function create_account(){
-  
-    var userEmail = document.getElementById("email_field1").value;
-    var userPass = document.getElementById("password_field1").value;
-  
-    firebase.auth().createUserWithEmailAndPassword(userEmail, userPass).catch(function(error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-
-      window.alert("Error : " + errorMessage);
-    });
-  }
-
-
-  
-  function send_verification(){
-  
-    var user = firebase.auth().currentUser;
-  
-    user.sendEmailVerification().then(function() {
-      // Email sent.
-      window.alert("Verification Sent! Check your email!");
-      document.getElementById("togl").style.display="none";
-    }).catch(function(error) {
-      // An error happened.
-      window.alert("Err!");
-    });
-    
-    
-  
-  
-  }
-
-        
-  function add_user_verification(){
-  function add_verif(h){
-          firebase.database().ref('mongo_hospital/' + h.user_id).set(h);
+    firebase.auth().onAuthStateChanged(function (user) {
+      const loginStylesheet = document.getElementById('login-style');
+      if (user) {
+        $("input").val("");
+        if (firebase.auth().currentUser.emailVerified) {
+          $("#dash-email").addClass("completed");
+        } else {
+          $("#dash-email").removeClass("completed");
         }
+
+        // User is signed in.
+        dbDataRetriever();//This function brings data from mongo
+
+        if (firebase.auth().currentUser) {
+          loginStylesheet.href = 'dashboard.css';
+        } else {
+          loginStylesheet.href = 'loginstyle.css'
+        }
+
+        document.getElementById("user_div").style.display = "block";
+        document.getElementById("login_div").style.display = "none";
+
+
+        var currentUser = user;
+
+
+
+        if (user != null) {
+
+          var email_id = user.email;
+          var email_verfied = user.emailVerified;
+
+          if (email_verfied) {
+            //document.getElementById("verify_btn").style.display = "none";
+            document.getElementById("togl").style.display = "none";
+          } else {
+            //document.getElementById("verify_btn").style.display = "block";
+            document.getElementById("togl").style.display = "block";
+          }
+          //document.getElementById("user_para").innerHTML = "User : " + email_id + "<br> Verfied : " + email_verfied;
+
+
+        }
+
+      } else {
+        // No user is signed in.
+        //login fuck up fix
+        if (firebase.auth().currentUser) {
+          loginStylesheet.href = 'dashboard.css';
+        } else {
+          loginStylesheet.href = 'loginstyle.css'
+        }
+        document.getElementById("user_div").style.display = "none";
+        document.getElementById("login_div").style.display = "block";
+      }
+    });
+
+
+
+
+
+    function login() {
+
+      var userEmail = document.getElementById("email_field2").value;
+      var userPass = document.getElementById("password_field2").value;
+
+      firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+
+        window.alert("Error : " + errorMessage);
+
+        // ...
+      });
+
+
+
+    }
+
+
+    function create_account() {
+
+      var userEmail = document.getElementById("email_field1").value;
+      var userPass = document.getElementById("password_field1").value;
+
+      firebase.auth().createUserWithEmailAndPassword(userEmail, userPass).catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+
+        window.alert("Error : " + errorMessage);
+      });
+    }
+
+
+
+    function send_verification() {
+
+      var user = firebase.auth().currentUser;
+
+      user.sendEmailVerification().then(function () {
+        // Email sent.
+        window.alert("Verification Sent! Check your email!");
+        document.getElementById("togl").style.display = "none";
+      }).catch(function (error) {
+        // An error happened.
+        window.alert("Err!");
+      });
+
+
+
+
+    }
+
+
+    function add_user_verification() {
+      function add_verif(h) {
+        firebase.database().ref('mongo_hospital/' + h.user_id).set(h);
+      }
 
       var user_verif = {
-      user_id: firebase.auth().currentUser.uid,
-      email: firebase.auth().currentUser.email,
-      object_id: 'undefined',
-      email_verif: 0,
-      id_verif: 0,
-      time: new Date().toLocaleString()
-    };
+        user_id: firebase.auth().currentUser.uid,
+        email: firebase.auth().currentUser.email,
+        object_id: 'undefined',
+        email_verif: 0,
+        id_verif: 0,
+        time: new Date().toLocaleString()
+      };
 
-    add_verif(user_verif);
-}
-  
-  function forgot_password(){
-  
-    var userEmail = document.getElementById("email_field3").value;
-    
-    var auth = firebase.auth();
-    
-  var emailAddress = userEmail;
-  
-  auth.sendPasswordResetEmail(emailAddress).then(function() {
-    // Email sent.
-    window.alert("Password reset link has been generated!");
-  }).catch(function(error) {
-    // An error happened.
-    window.alert("Err!");
-  });
-  
-  }
-  
-  
-  function deleteacc(){
-  
-    var rand = Math.round(Math.random()*100000);
-    if(window.prompt("Type the number to confirm \n " + "\t\t" + rand) == rand)
-    {
-      var user = firebase.auth().currentUser;
-      var userProvidedPassword = window.prompt("Re-enter your Password");
-      var credential = firebase.auth.EmailAuthProvider.credential(
-        user.email, 
-        userProvidedPassword
-    );
-  
-  // Prompt the user to re-provide their sign-in credentials
-  
-  user.reauthenticateWithCredential(credential).then(function() {
-    // User re-authenticated.
-  }).catch(function(error) {
-    // An error happened.
-  });
-  
-  user.delete().then(function() {
-    // User deleted.
-    window.alert("User deleted");
-  }).catch(function(error) {
-    // An error happened.
-    window.alert("User NOT deleted!");
-  });
-  
-  
-    }else{
-      window.alert("Err! Please type "+rand);
+      add_verif(user_verif);
     }
-    
-  }
-  
-  function change_pass(){
-  
-  
-  var user = firebase.auth().currentUser;
+
+    function forgot_password() {
+
+      var userEmail = document.getElementById("email_field3").value;
+
+      var auth = firebase.auth();
+
+      var emailAddress = userEmail;
+
+      auth.sendPasswordResetEmail(emailAddress).then(function () {
+        // Email sent.
+        window.alert("Password reset link has been generated!");
+      }).catch(function (error) {
+        // An error happened.
+        window.alert("Err!");
+      });
+
+    }
+
+
+    function deleteacc() {
+
+      var rand = Math.round(Math.random() * 100000);
+      if (window.prompt("Type the number to confirm \n " + "\t\t" + rand) == rand) {
+        var user = firebase.auth().currentUser;
+        var userProvidedPassword = window.prompt("Re-enter your Password");
+        var credential = firebase.auth.EmailAuthProvider.credential(
+          user.email,
+          userProvidedPassword
+        );
+
+        // Prompt the user to re-provide their sign-in credentials
+
+        user.reauthenticateWithCredential(credential).then(function () {
+          // User re-authenticated.
+        }).catch(function (error) {
+          // An error happened.
+        });
+
+        user.delete().then(function () {
+          // User deleted.
+          window.alert("User deleted");
+        }).catch(function (error) {
+          // An error happened.
+          window.alert("User NOT deleted!");
+        });
+
+
+      } else {
+        window.alert("Err! Please type " + rand);
+      }
+
+    }
+
+    function change_pass() {
+
+
+      var user = firebase.auth().currentUser;
       var userProvidedPassword = window.prompt("Enter your old Password : ");
       var credential = firebase.auth.EmailAuthProvider.credential(
-        user.email, 
+        user.email,
         userProvidedPassword
-    );
-  
-  // Prompt the user to re-provide their sign-in credentials
-  
-  user.reauthenticateWithCredential(credential).then(function() {
-    // User re-authenticated.
-      var user = firebase.auth().currentUser;
-    var newPassword = window.prompt("Enter your new Password : ");
-  
-    user.updatePassword(newPassword).then(function() {
-      // Update successful.
-      window.alert("Password Updated!");
-    }).catch(function(error) {
-      // An error happened.
-      window.alert("Password NOT Updated!");
-    });
-    
-  }).catch(function(error) {
-    // An error happened.
-    window.alert("Password NOT Updated!");
-  });
-  
-  }
-  
-  
-  function logout(){
-    firebase.auth().signOut();
-  }
-  
-  function add_online(h){
-  firebase.database().ref('online/' + h.user_id).set(h);
-}
-$('#chatpage').click(function(){
-  var online = {
-    user_id: firebase.auth().currentUser.uid,
-    email: firebase.auth().currentUser.email
-  };
+      );
 
-  add_online(online);
+      // Prompt the user to re-provide their sign-in credentials
 
-  });
+      user.reauthenticateWithCredential(credential).then(function () {
+        // User re-authenticated.
+        var user = firebase.auth().currentUser;
+        var newPassword = window.prompt("Enter your new Password : ");
 
-function remove_online(h){
-    firebase.database().ref('online/' + h.uid).remove();
-  }
-  $('#toggle').click(function(){
-    if(document.getElementById("stat").innerHTML == "Status : Offline")
-      remove_online(firebase.auth().currentUser);
-    else{
-      var online = {
-    user_id: firebase.auth().currentUser.uid,
-    email: firebase.auth().currentUser.email
-    };
-    add_online(online);
+        user.updatePassword(newPassword).then(function () {
+          // Update successful.
+          window.alert("Password Updated!");
+        }).catch(function (error) {
+          // An error happened.
+          window.alert("Password NOT Updated!");
+        });
+
+      }).catch(function (error) {
+        // An error happened.
+        window.alert("Password NOT Updated!");
+      });
+
     }
- });
 
- var addonref = firebase.database().ref().child("online");
- addonref.on("value", function(snapshot) {
+
+    function logout() {
+      firebase.auth().signOut();
+    }
+
+    function add_online(h) {
+      firebase.database().ref('online/' + h.user_id).set(h);
+    }
+    $('#chatpage').click(function () {
+      var online = {
+        user_id: firebase.auth().currentUser.uid,
+        email: firebase.auth().currentUser.email
+      };
+
+      add_online(online);
+
+    });
+
+    function remove_online(h) {
+      firebase.database().ref('online/' + h.uid).remove();
+    }
+    $('#toggle').click(function () {
+      if (document.getElementById("stat").innerHTML == "Status : Offline")
+        remove_online(firebase.auth().currentUser);
+      else {
+        var online = {
+          user_id: firebase.auth().currentUser.uid,
+          email: firebase.auth().currentUser.email
+        };
+        add_online(online);
+      }
+    });
+
+    var addonref = firebase.database().ref().child("online");
+    addonref.on("value", function (snapshot) {
       $("#online_member").empty();
       $("#online_number").empty();
-      var cabHTMLitem="";
-      var onHTMLitem=0;
-      snapshot.forEach(function(childsnapshot){
+      var cabHTMLitem = "";
+      var onHTMLitem = 0;
+      snapshot.forEach(function (childsnapshot) {
         var item = childsnapshot.val();
-        cabHTMLitem += "<br>"+item.email + ",";
+        cabHTMLitem += "<br>" + item.email + ",";
         onHTMLitem++;
+      });
+      $("#online_member").html(cabHTMLitem);
+      $("#online_number").html(onHTMLitem);
     });
-    $("#online_member").html(cabHTMLitem);
-    $("#online_number").html(onHTMLitem);
-  });
 
 
-  var cnt = 0;
-  
-  function add_chat(h){
-  firebase.database().ref('chat/' +Date()  +'_'+h.user_id+'@'+cnt).set(h);
-  }
-  
+    var cnt = 0;
 
-  // send button bellow chat 
-  $('#chat_btn').click(function(){
-   //document.getElementById("chat_display").innerHTML += '<div class="chat-container"><div class="chat-respond msg"style="background: aqua;" >' + firebase.auth().currentUser.email + ' : ' + '</div></div>';
-    
-    var message = {
-      user_id: firebase.auth().currentUser.uid,
-      email: firebase.auth().currentUser.email,
-      message: document.getElementById("chat_input").value,
-      count: Date()+'_'+cnt,
-      time: new Date().toLocaleString()
-    };
-    
-  add_chat(message);
-  cnt++
-     document.getElementById("chat_input").value = "";
-     window.scrollBy(0,100);
-  
-     
- });
+    function add_chat(h) {
+      firebase.database().ref('chat/' + Date() + '_' + h.user_id + '@' + cnt).set(h);
+    }
 
- var chatonref = firebase.database().ref().child("chat");
- chatonref.on("value", function(snapshot) {
-      
-      var chatHTMLitem="";
-      if(firebase.auth().currentUser!=null)
+
+    // send button bellow chat 
+    $('#chat_btn').click(function () {
+      //document.getElementById("chat_display").innerHTML += '<div class="chat-container"><div class="chat-respond msg"style="background: aqua;" >' + firebase.auth().currentUser.email + ' : ' + '</div></div>';
+
+      var message = {
+        user_id: firebase.auth().currentUser.uid,
+        email: firebase.auth().currentUser.email,
+        message: document.getElementById("chat_input").value,
+        count: Date() + '_' + cnt,
+        time: new Date().toLocaleString()
+      };
+
+      add_chat(message);
+      cnt++
+      document.getElementById("chat_input").value = "";
+      window.scrollBy(0, 100);
+
+
+    });
+
+    var chatonref = firebase.database().ref().child("chat");
+    chatonref.on("value", function (snapshot) {
+
+      var chatHTMLitem = "";
+      if (firebase.auth().currentUser != null)
         var currentUser = firebase.auth().currentUser.email;
-      snapshot.forEach(function(childsnapshot){
-        
+      snapshot.forEach(function (childsnapshot) {
+
         var item = childsnapshot.val();
-        if(item.email == currentUser){
-          chatHTMLitem += '<div class="chat" style="text-align: right" ><div class="ui compact green colored message"style="border-radius: 100px;"><i class="blue colored user md icon"></i>'+ item.email + " : "+item.message + '</div></div>' +'<div class="ui hidden divider">' +'</div>';
+        if (item.email == currentUser) {
+          chatHTMLitem += '<div class="chat" style="text-align: right" ><div class="ui compact green colored message"style="border-radius: 100px;"><i class="blue colored user md icon"></i>' + item.email + " : " + item.message + '</div></div>' + '<div class="ui hidden divider">' + '</div>';
         }
-        else{
-          chatHTMLitem += '<div class="chat" ><div class="ui compact blue colored message"style="border-radius: 100px;"><i class="red colored hospital symbol icon"></i>'+ item.email + " : "+item.message + '</div></div>'+'<div class="ui hidden divider">' +'</div>';
+        else {
+          chatHTMLitem += '<div class="chat" ><div class="ui compact blue colored message"style="border-radius: 100px;"><i class="red colored hospital symbol icon"></i>' + item.email + " : " + item.message + '</div></div>' + '<div class="ui hidden divider">' + '</div>';
         }
         //document.getElementById('chat_input').value="";
-        
+
+
+      });
+      $("#chat_display").html(chatHTMLitem);
+      /*var m=0;
+    for(m=0; m<document.getElementsByClassName('chatmsg').length; m++){
+        if(document.getElementsByClassName('chatmsg')[m].innerText.search(firebase.auth().currentUser.email) >= 0){
+          document.getElementsByClassName('chat-sender msg')[m].style.background = "indigo";
+          //make chat bubbles pushed to right
+        }
+    }*/
 
     });
-    $("#chat_display").html(chatHTMLitem);
-    /*var m=0;
-  for(m=0; m<document.getElementsByClassName('chatmsg').length; m++){
-      if(document.getElementsByClassName('chatmsg')[m].innerText.search(firebase.auth().currentUser.email) >= 0){
-        document.getElementsByClassName('chat-sender msg')[m].style.background = "indigo";
-        //make chat bubbles pushed to right
-      }
-  }*/
 
-  });
 
-  
-//Firebase Uploader
+    //Firebase Uploader
 
-var uploader = document.getElementById('uploader');
-var fileBtn = document.getElementById('fileBtn');
+    var uploader = document.getElementById('uploader');
+    var fileBtn = document.getElementById('fileBtn');
 
-fileBtn.addEventListener('change',function(e) {
-  if(firebase.auth().currentUser.emailVerified ? 1 : 0){
-    var file = e.target.files[0];
-    var loc = URL.createObjectURL(event.target.files[0])+'';
-    var storageRef = firebase.storage().ref('hospital_id/'+firebase.auth().currentUser.email+'_'+file.name);
-    var task = storageRef.put(file);
-    var anal_div = document.getElementById('analysis');
-    task.on('state_changed',
-      function progress(snapshot){
-        document.getElementById('uploader').style.display = "inline"
-        document.getElementById('chs').style.display = "none"
-        var percentage = (snapshot.bytesTransferred/snapshot.totalBytes) * 100;
-        uploader.value = percentage;
-        
-      },
-      function error(err){
-          //write some error here please
-          
-          alert("Error");
-      },
-      function complete(){
-        //function when complete
-        alert("Done");
-        alert("Analysis will start in a while . . .");
-        document.getElementById('analysis').innerHTML = "Processing . . .";
-        Tesseract.recognize(
-          loc,
-            'eng',
-            { logger: m => {document.getElementById('analysis').innerHTML = " "+m.status;
-            document.getElementById("percentage").innerHTML =  '<progress value="'+ m.progress*100 +'" max="100" id="uploader">0%</progress>'} }
-          ).then(({ data: { text } }) => {
-            //document.getElementById('analysis').innerHTML = text;
-            document.getElementById('analysis').innerHTML = "text processed"
-            if(text.search("Hospital") < 0 && text.search("hospital") < 0 && text.search("HOSPITAL") < 0){
+    fileBtn.addEventListener('change', function (e) {
+      if (firebase.auth().currentUser.emailVerified ? 1 : 0) {
+        var file = e.target.files[0];
+        var loc = URL.createObjectURL(event.target.files[0]) + '';
+        var storageRef = firebase.storage().ref('hospital_id/' + firebase.auth().currentUser.email + '_' + file.name);
+        var task = storageRef.put(file);
+        var anal_div = document.getElementById('analysis');
+        task.on('state_changed',
+          function progress(snapshot) {
+            document.getElementById('uploader').style.display = "inline"
+            document.getElementById('chs').style.display = "none"
+            var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            uploader.value = percentage;
+
+          },
+          function error(err) {
+            //write some error here please
+
+            alert("Error");
+          },
+          function complete() {
+            //function when complete
+            alert("Done");
+            alert("Analysis will start in a while . . .");
+            document.getElementById('analysis').innerHTML = "Processing . . .";
+            Tesseract.recognize(
+              loc,
+              'eng',
+              {
+                logger: m => {
+                  document.getElementById('analysis').innerHTML = " " + m.status;
+                  document.getElementById("percentage").innerHTML = '<progress value="' + m.progress * 100 + '" max="100" id="uploader">0%</progress>'
+                }
+              }
+            ).then(({ data: { text } }) => {
+              //document.getElementById('analysis').innerHTML = text;
+              document.getElementById('analysis').innerHTML = "text processed"
+              if (text.search("Hospital") < 0 && text.search("hospital") < 0 && text.search("HOSPITAL") < 0) {
                 document.getElementById('res').innerHTML = "Failed!";
                 document.getElementById('res').style.color = "red";
-            }else{
+              } else {
                 document.getElementById('res').innerHTML = "Passed.";
                 $("#dash-id").addClass("completed");
                 document.getElementById('res').style.color = "green";
-                function add_verif_set(h){
+                function add_verif_set(h) {
                   firebase.database().ref('mongo_hospital/' + h.user_id).set(h);
                 }
 
@@ -609,50 +618,52 @@ fileBtn.addEventListener('change',function(e) {
                   object_id: 'undefined',
                   email_verif: firebase.auth().currentUser.emailVerified ? 1 : 0,
                   time: new Date().toLocaleString()
-                               
-              };
 
-              add_verif_set(email_verif_set);
+                };
 
-            }
-          })
+                add_verif_set(email_verif_set);
+
+              }
+            })
+          }
+        );
+      } else {
+        alert("Please verify your account under the settings tab first");
       }
-    );
-  }else{
-    alert("Please verify your account under the settings tab first");
-  }
-});
-</script>
+    });
+  </script>
 
-<script> document.getElementById("log-in").classList.add("active"); </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js" integrity="sha256-t8GepnyPmw9t+foMh3mKNvcorqNHamSKtKRxxpUEgFI=" crossorigin="anonymous"></script>
-<script src="design.js"></script>
+  <script> document.getElementById("log-in").classList.add("active"); </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"
+    integrity="sha256-t8GepnyPmw9t+foMh3mKNvcorqNHamSKtKRxxpUEgFI=" crossorigin="anonymous"></script>
+  <script src="design.js"></script>
 
-<script>
+  <script>
     // <!-- Visual ELement Initialisation-->
     $('i').popup();
-</script>
-<script>
-var enter_evt = document.getElementById("chat_input");
-enter_evt.addEventListener("keyup", function(event) {
-    if (event.keyCode === 13) {
+  </script>
+  <script>
+    var enter_evt = document.getElementById("chat_input");
+    enter_evt.addEventListener("keyup", function (event) {
+      if (event.keyCode === 13) {
         event.preventDefault();
         document.getElementById("chat_btn").click();
-    }
-});
-</script>
-<script>
-  window.watsonAssistantChatOptions = {
+      }
+    });
+  </script>
+  <script>
+    window.watsonAssistantChatOptions = {
       integrationID: "3a38c64f-ef6d-4910-b314-78f42d76a652", // The ID of this integration.
       region: "eu-gb", // The region your integration is hosted in.
       serviceInstanceID: "411ae7c2-7181-492b-aa64-fdcaafb19e28", // The ID of your service instance.
-      onLoad: function(instance) { instance.render(); }
+      onLoad: function (instance) { instance.render(); }
     };
-  setTimeout(function(){
-    const t=document.createElement('script');
-    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
-    document.head.appendChild(t);
-  });
-</script>
-</body>
-</html>
+    setTimeout(function () {
+      const t = document.createElement('script');
+      t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
+      document.head.appendChild(t);
+    });
+  </script>
+  </body>
+
+  </html>

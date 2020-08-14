@@ -11,6 +11,9 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
 
+//firebase.database().ref('location/' + firebase.auth().currentUser.uid).on('value',(snap)=>{
+   // document.getElementById('covidstatus').value = snap.val().status;
+//});
 
 /*===========================adding locations to database - start==================================*/
 function add_location(){

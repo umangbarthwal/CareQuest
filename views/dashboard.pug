@@ -1,0 +1,109 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8", name="viewport", content="width=device-width, initial-scale=1.0")
+    title Profile Page
+    link(rel="stylesheet", href="./mvp/css")
+    script(src="creds.js")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css",integrity="sha256-9mbkOfVho3ZPXfM7W8sV2SndrGDuh7wuyLjtsWeTI1Q=",crossorigin="anonymous")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css") 
+    script(src="https://code.jquery.com/jquery-3.5.1.min.js",integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=", crossorigin="anonymous")
+    link(rel="stylesheet", id="theme", href="light-theme.css")
+    link(rel="stylesheet", href="styles.css")
+
+  body
+    .ui.inverted.pointing.menu.stackable
+      a.item.header#about(href="/") Home
+      a.item#index_plasma(href="/index_plasma") Dashboard
+      a.item#map(href="/map") Track a Bed
+      a.item#plasma_bank(href="/plasma_bank") Plasma Bank
+      a.item#log-in(href="/login") CareNet
+      a.item#technology(href="/AboutProject") About
+      .ui.fluid.inverted.two.column.centered.grid.menu
+        span.fluid.item#status CareQuest
+      a.item(href="/beta_login")
+        i.map.icon
+      a.item(href="/faq")
+        i.info.icon
+      a.item#theme-toggle
+        i.moon.icon
+      .hamburger
+        span.hamburger-bun
+        span.hamburger-patty
+        span.hamburger-bun
+    .ui.container
+      br
+      main
+        h2.ui.header Welcome, #{(user.displayName)?user.displayName:user.email}
+        p.ui.meta This is a private page only for admins!
+        .ui.segment
+          p Details are as
+          h4 UID : #{user.uid}
+          h4 Email Verfication Status : #{user.emailVerified}
+          h4 Admin Status : #{role.admin}
+          h4 Hospital Object Attached : #{role.object_id}
+          h4 OCR Status : #{(role.id_verif)?'True':'False'}
+          a.ui.red.button(href="/sessionLogout") Log out
+        .ui.segment
+          h3.ui.header DASHBOARD
+          .ui.cards.three.centered
+            .card
+              .content
+                h4.ui.header HOSPITAL MANAGEMENT
+                .description Use this to search Object Id of the Hospital you want to manage!
+                hr
+                .extra.content
+                  .ui.input.fluid
+                    input#hospital(type="text", placeholder="Name of Hospital ...")
+                    .ui.primary.button.right.floated(href="#hospitalResult",onclick="fuzzynameGet();") Search
+            .card
+              .content
+                h4.ui.header Connected Accounts
+                .description Use this to find out which users are connected to a specific hospitals.
+                hr
+                .extra.content
+                  .ui.input.fluid
+                    input#findEmail(type="text", placeholder="Hospital object ids ...")
+                    .ui.primary.button.right.floated(onclick="findEmail();") Search
+
+            .card
+              .content
+                h4.ui.header USER MANAGEMENT
+                .description Use this manage the users using user Email Accounts!.
+                hr
+                .extra.content
+                  form(action="/admin/userEdit" , method="POST")
+                    .ui.input.fluid
+                      input#email(name="email",type="text", placeholder="Email Address ...")
+                      button.ui.primary.button.right.floated Manage
+            
+
+        div.ui.segment.loading#hospitalResult(style={'display':'none'})
+          h2.header Search Results!
+            i.close.icon.red#hclose-icon
+          #result1
+            .ui.cards.one.fluid
+
+        div.ui.segment#emailResult(style={'display':'none'})
+          h2.header Accounts Found!
+            i.close.icon.red#eclose-icon
+          #result2
+            ul.list-group
+        .ui.segment(style={'display':'none'})
+          form#eHospital(action="/admin/hEdit", method="GET")
+            label Hospital Id
+            input#hospital_id(type="text",name="_id")
+          
+          
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js")
+  script(src="design.js")
+  script(src="js/ajax_helper.js")
+  script.
+    $("#eclose-icon").click(function(){
+      $('#emailResult').transition("scale","500ms");
+    })
+    $("#hclose-icon").click(function(){
+      $('#hospitalResult').transition("scale","500ms");
+    })
+
+

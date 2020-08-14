@@ -1,213 +1,223 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>
+
+<head>
+  <title>
     CareQuest
-    </title>
-    <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1.0" />
-    <script src="creds.js"></script>
-    <!-- new css -->
+  </title>
+  <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1.0" />
+  <script src="creds.js"></script>
+  <!-- new css -->
 
-    <!-- semantic ui config-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha256-9mbkOfVho3ZPXfM7W8sV2SndrGDuh7wuyLjtsWeTI1Q=" crossorigin="anonymous" />
-    <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- semantic ui config-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+    integrity="sha256-9mbkOfVho3ZPXfM7W8sV2SndrGDuh7wuyLjtsWeTI1Q=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link id="theme" rel="stylesheet" type="text/css" href="light-theme.css" />
-    <link rel="stylesheet" href="styles.css">
-    
-    <!-- Scroll animation -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <script>
-        //some default pre init
-        var PB = PB || {};PB.q = PB.q || [];PB.events = PB.events || [];
+  <link id="theme" rel="stylesheet" type="text/css" href="light-theme.css" />
+  <link rel="stylesheet" href="styles.css">
 
-        //PushBots ApplicationId (required)
-        PB.app_id = "5f2161475bf96b31d73b49a2";
-        //Your domain name, must be HTTPS or localhost  (required)
-        PB.domain = "https://care-quest.herokuapp.com";
-        //Update and uncomment it if you are using custom safari certificate for your app
-        PB.safari_push_id = "web.com.pushbots.safaripush";
-        //****************************************
+  <!-- Scroll animation -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <script>
+    //some default pre init
+    var PB = PB || {}; PB.q = PB.q || []; PB.events = PB.events || [];
 
-        PB.logging_enabled = true;
-        PB.auto_subscribe = true;
+    //PushBots ApplicationId (required)
+    PB.app_id = "5f2161475bf96b31d73b49a2";
+    //Your domain name, must be HTTPS or localhost  (required)
+    PB.domain = "https://care-quest.herokuapp.com";
+    //Update and uncomment it if you are using custom safari certificate for your app
+    PB.safari_push_id = "web.com.pushbots.safaripush";
+    //****************************************
 
-        //Custom worker and manifest URL
-        PB.worker_url = PB.domain + "/pushbots-worker.js";
+    PB.logging_enabled = true;
+    PB.auto_subscribe = true;
 
-        //Welcome notification message
-        PB.welcome = {title:"Welcome ",message:"Thanks for subscribing!", url :PB.domain};
+    //Custom worker and manifest URL
+    PB.worker_url = PB.domain + "/pushbots-worker.js";
 
-        function sendNotification(){
-              PB.register();
-              PB.q.push(["sendNotification", {title:"Hey ",message:"Why not?", url :"https://care-quest.herokuapp.com"}]);
-        }
+    //Welcome notification message
+    PB.welcome = { title: "Welcome ", message: "Thanks for subscribing!", url: PB.domain };
 
-        </script>
+    function sendNotification() {
+      PB.register();
+      PB.q.push(["sendNotification", { title: "Hey ", message: "Why not?", url: "https://care-quest.herokuapp.com" }]);
+    }
 
-        <script src="//cdn.pushbots.com/js/sdk.min.js" type="text/javascript" onload="PB.init()" async></script>
+  </script>
 
-        <!--google font-->
-          <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
-        <!--css file-->
-          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="//cdn.pushbots.com/js/sdk.min.js" type="text/javascript" onload="PB.init()" async></script>
+
+  <!--google font-->
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+  <!--css file-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 
   <style>
-  body {
-    background: #fff;
-    padding: 0px;
-    margin: 0px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 16px;
-  }
+    body {
+      background: #fff;
+      padding: 0px;
+      margin: 0px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 16px;
+    }
 
-  input, button {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 700;
-  }
+    input,
+    button {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+    }
 
-  .main-div {
-    width: 20%;
-    margin: 0px auto;
-    margin-top: 150px;
-    padding: 20px;
-    min-width: max-content !important;
-  }
+    .main-div {
+      width: 20%;
+      margin: 0px auto;
+      margin-top: 150px;
+      padding: 20px;
+      min-width: max-content !important;
+    }
 
-  .main-div input {
-    display: block;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background: #fff;
-    padding: 15px;
-    outline: none;
-    width: 100%;
-    margin-bottom: 20px;
-    transition: 0.3s;
-    -webkit-transition: 0.3s;
-    -moz-transition: 0.3s;
-  }
+    .main-div input {
+      display: block;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background: #fff;
+      padding: 15px;
+      outline: none;
+      width: 100%;
+      margin-bottom: 20px;
+      transition: 0.3s;
+      -webkit-transition: 0.3s;
+      -moz-transition: 0.3s;
+    }
 
-  .main-div input:focus {
-    border: 1px solid #777;
-  }
+    .main-div input:focus {
+      border: 1px solid #777;
+    }
 
-  .main-div button{
-    background: #5d8ffc;
-    color: #fff;
-    border: 1px solid #5d8ffc;
-    border-radius: 5px;
-    padding: 15px;
-    display: block;
-    width: 100%;
-    transition: 0.3s;
-    -webkit-transition: 0.3s;
-    -moz-transition: 0.3s;
-  }
+    .main-div button {
+      background: #5d8ffc;
+      color: #fff;
+      border: 1px solid #5d8ffc;
+      border-radius: 5px;
+      padding: 15px;
+      display: block;
+      width: 100%;
+      transition: 0.3s;
+      -webkit-transition: 0.3s;
+      -moz-transition: 0.3s;
+    }
 
-  .main-div button:hover{
-    background: #fff;
-    color: #5d8ffc;
-    border: 1px solid #5d8ffc;
-    cursor: pointer;
-  }
+    .main-div button:hover {
+      background: #fff;
+      color: #5d8ffc;
+      border: 1px solid #5d8ffc;
+      cursor: pointer;
+    }
   </style>
-  </head>
+</head>
+
 <body>
 
   <div class="ui inverted pointing menu stackable">
-      <a id="about" href="/" class="item header">Home</a>
-      <a id="index_plasma" href="/index_plasma" class="item">Dashboard</a>
-      <a id="map" href="/map" class="item">Track A Bed</a>
-      <a id="plasma_bank" href="/plasma_bank" class="item">Plasma Bank</a>
-      <a id="log-in" href="/login" class="item">CareNet</a>
-      <a id="technology" href="/AboutProject" class="item">About</a>
-      <!-- <a id="test" href="/test" class="item">Test</a> -->
+    <a id="about" href="/" class="item header">Home</a>
+    <a id="index_plasma" href="/index_plasma" class="item">Dashboard</a>
+    <a id="map" href="/map" class="item">Track A Bed</a>
+    <a id="plasma_bank" href="/plasma_bank" class="item">Plasma Bank</a>
+    <a class="item" href="/beta_login">Covid Tracer</a>
+    <a id="log-in" href="/login" class="item">CareNet</a>
+    <!-- <a id="test" href="/test" class="item">Test</a> -->
 
 
 
 
-      <div class="ui fluid inverted two column centered grid menu">
-          <span class="fluid item" id="status">CareQuest</span>
-      </div>
-      <a class="item" href="/beta_login" ><i class="map icon"></i></a>
-      <a class="item" href="/faq" ><i class="info icon"></i></a>
-      <a class="item" id="theme-toggle"><i class="moon icon"></i></a>
-      <div class="hamburger">
-          <span class="hamburger-bun"></span>
-          <span class="hamburger-patty"></span>
-          <span class="hamburger-bun"></span>
-      </div>
+    <div class="ui fluid inverted two column centered grid menu">
+      <span class="fluid item" id="status">CareQuest</span>
+    </div>
+    <a id="technology" href="/AboutProject" class="item"><i class="coffee icon"></i></a>
+    <a class="item" href="/faq"><i class="info icon"></i></a>
+    <a class="item" id="theme-toggle"><i class="moon icon"></i></a>
+    <div class="hamburger">
+      <span class="hamburger-bun"></span>
+      <span class="hamburger-patty"></span>
+      <span class="hamburger-bun"></span>
+    </div>
   </div>
 
-<div class="ui fluid center aligned segment">
+  <div class="ui fluid center aligned segment">
     <h3 class="ui header" style="font-size:3.3em;">COVID Live Contact Tracing</h3>
-</div>
+  </div>
 
-<div id="mobile" class="main-div bg-dark" style="display: block">
-  <form>
-    <h2 style="color: White;text-align: center;" >Enter Your Mobile Number</h2>
-    <input type="text" id="mobile_number" placeholder="+91**********" />
-    <div id="recaptcha-container" style="display: flex;justify-content: center;"></div>
-    <br>
-    <button type="button" onclick="phoneAuth();">Send Code</button>
-  </form>
-</div>
+  <div id="mobile" class="main-div bg-dark" style="display: block">
+    <form>
+      <h2 style="color: White;text-align: center;">Enter Your Mobile Number</h2>
+      <input type="text" id="mobile_number" placeholder="+91**********" />
+      <div id="recaptcha-container" style="display: flex;justify-content: center;"></div>
+      <br>
+      <button type="button" onclick="phoneAuth();">Send Code</button>
+    </form>
+  </div>
 
-<div id="code" class="main-div bg-dark" style="display: none">
-  <form>
-    <h2 style="color: White;">Enter Verification code : </h2>
+  <div id="code" class="main-div bg-dark" style="display: none">
+    <form>
+      <h2 style="color: White;">Enter Verification code : </h2>
 
-    <input type="text" id="verificationCode" placeholder="Enter verification code">
-    <button type="button" onclick="codeverify();">Verify code</button>
-  </form>
-</div>
-
-
+      <input type="text" id="verificationCode" placeholder="Enter verification code">
+      <button type="button" onclick="codeverify();">Verify code</button>
+    </form>
+  </div>
 
 
 
 
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<!-- TODO: Add SDKs for Firebase products that you want to use
+
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyChax-RIyl8an4nKJA0XLdIc8CyU3jeGgY",
-    authDomain: "here-maps-bitsians.firebaseapp.com",
-    databaseURL: "https://here-maps-bitsians.firebaseio.com",
-    projectId: "here-maps-bitsians",
-    storageBucket: "here-maps-bitsians.appspot.com",
-    messagingSenderId: "517005193635",
-    appId: "1:517005193635:web:846d53aebc789427b0ea16"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyChax-RIyl8an4nKJA0XLdIc8CyU3jeGgY",
+      authDomain: "here-maps-bitsians.firebaseapp.com",
+      databaseURL: "https://here-maps-bitsians.firebaseio.com",
+      projectId: "here-maps-bitsians",
+      storageBucket: "here-maps-bitsians.appspot.com",
+      messagingSenderId: "517005193635",
+      appId: "1:517005193635:web:846d53aebc789427b0ea16"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
 
-	</script>
-<script src="beta_login.js" type="text/javascript"></script>
-<script src="design.js"></script>
+  </script>
+  <script src="beta_login.js" type="text/javascript"></script>
+  <script src="design.js"></script>
 
-<script>
+  <script>
     window.watsonAssistantChatOptions = {
-        integrationID: "3a38c64f-ef6d-4910-b314-78f42d76a652", // The ID of this integration.
-        region: "eu-gb", // The region your integration is hosted in.
-        serviceInstanceID: "411ae7c2-7181-492b-aa64-fdcaafb19e28", // The ID of your service instance.
-        onLoad: function(instance) { instance.render(); }
-      };
-    setTimeout(function(){
-      const t=document.createElement('script');
-      t.src="https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
+      integrationID: "3a38c64f-ef6d-4910-b314-78f42d76a652", // The ID of this integration.
+      region: "eu-gb", // The region your integration is hosted in.
+      serviceInstanceID: "411ae7c2-7181-492b-aa64-fdcaafb19e28", // The ID of your service instance.
+      onLoad: function (instance) { instance.render(); }
+    };
+    setTimeout(function () {
+      const t = document.createElement('script');
+      t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
       document.head.appendChild(t);
     });
   </script>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
 
 </body>
+
 </html>

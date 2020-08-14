@@ -50,3 +50,24 @@ CareQuest aims to bring order to the chaos caused by COVID-19. To do so, CareQue
 11. Firebase registers all variables related to hospital and user and stores them in Firebase Realtime Database
 12. HERE Map API (Track-a-Bed) sends hospital data to Firebase Realtime Database to link with user data
 13. mongoDB sends all hospital data from its collection to HERE Map APIs to be displayed under Track-a-Bed
+
+## Live demo
+
+You can find a running system to test at [text](enter link without quotes)
+
+## Built with
+
+* [IBM Watson](https://www.ibm.com/in-en/watson) - Chat Assistant : CareBot
+* [HERE Maps API](https://developer.here.com/) - HERE Map API for Track-a-Bed
+* [Firebase](https://firebase.google.com/) - Database and Storage Used for Plasma Bank
+* [nodeJS](https://nodejs.org/en/) - Server Runtime Environment
+* [Github](https://github.com/) - Version control
+* [Heroku](https://www.heroku.com/) - Cloud Hosting Service
+* [jQuery](https://jquery.com/) - JavaScript Library for handling AJAX
+* [mongoDB](https://www.mongodb.com/) - NoSQL Database to handle data for Track-a-Bed
+* [Tesseract](https://tesseract.projectnaptha.com/) - OCR system for CareNet
+* [PushBot](https://pushbots.com/) - Notifications
+* [SendGrid](https://sendgrid.com/) - Mailing Service
+* [AOS](https://michalsnik.github.io/aos/) - Animation for landing and Plasma Bank pages
+* [Bootstrap](https://getbootstrap.com/) - Frontend components
+* [Semantic UI](https://semantic-ui.com/) - UI/UX Design

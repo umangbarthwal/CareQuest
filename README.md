@@ -51,7 +51,7 @@ CareQuest aims to bring order to the chaos caused by COVID-19. To do so, CareQue
 
 ## Live demo
 
-You can find a running system to test at [text](https://care-quest-bitsians.herokuapp.com/)
+You can find a running system to test at [care-quest-bitsians.herokuapp.com](https://care-quest-bitsians.herokuapp.com/)
 
 ## Built with
 

@@ -29,7 +29,7 @@ CareQuest aims to bring order to the chaos caused by COVID-19. To do so, CareQue
 
 ## Demo video
 
-[![Watch the video](https://github.com/barthwalumang/CareQuest/blob/master/public/Logo%20+%20play.png?raw=true)](link without quotes)
+[![Watch the video](https://github.com/barthwalumang/CareQuest/blob/master/public/Logo%20+%20play.png?raw=true)](link without quotes goes here)
 
 ## Architecture
 
